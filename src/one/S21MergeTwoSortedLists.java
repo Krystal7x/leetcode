@@ -1,5 +1,7 @@
 package one;
 
+import common.ListNode;
+
 /**
  * @auther k
  * @date 2019/6/16 下午1:50
@@ -8,14 +10,6 @@ package one;
 
 public class S21MergeTwoSortedLists {
 
-    /**
-     * Definition for singly-linked list.
-     */
-     public class ListNode {
-          int val;
-          ListNode next;
-          ListNode(int x) { val = x; }
-     }
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
          if(null == l1 && null == l2){return null;}
