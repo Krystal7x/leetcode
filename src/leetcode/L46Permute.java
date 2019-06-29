@@ -1,4 +1,4 @@
-package one;
+package leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ import java.util.List;
  *
  */
 
-public class S46Permute {
+public class L46Permute {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
         backtrack(result, nums, 0);

@@ -1,4 +1,4 @@
-package one;
+package leetcode;
 
 import java.util.HashMap;
 
@@ -20,7 +20,7 @@ import java.util.HashMap;
  * 输出: 3
  */
 
-public class S33LongestSubstring {
+public class L33LongestSubstring {
 
     public int lengthOfLongestSubstring(String s) {
         if(null ==s || s.isEmpty()){return 0;}

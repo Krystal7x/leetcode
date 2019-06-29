@@ -1,4 +1,4 @@
-package one;
+package leetcode;
 
 
 /**
@@ -11,7 +11,7 @@ package one;
  *
  */
 
-public class S28Implement_strStr {
+public class L28Implement_strStr {
     //傻逼方法
     public int strStr2(String haystack, String needle) {
         if(null == needle || needle.isEmpty()){

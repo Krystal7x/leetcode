@@ -1,4 +1,4 @@
-package one;
+package leetcode;
 
 /**
  * @auther k
@@ -8,7 +8,7 @@ package one;
 /**
  * 判断一个整数是否是回文数
  */
-public class S9PalindromeNumber {
+public class L9PalindromeNumber {
     //使用字符串
     public boolean isPalindrome(int x) {
         char[] sx=String.valueOf(x).toCharArray();

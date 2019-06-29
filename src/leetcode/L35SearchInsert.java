@@ -1,4 +1,4 @@
-package one;
+package leetcode;
 
 /**
  * @auther k
@@ -15,7 +15,7 @@ package one;
  *
  */
 
-public class S35SearchInsert {
+public class L35SearchInsert {
 
     public int searchInsert(int[] nums, int target) {
         if(null == nums || nums.length == 0){ return 0;}

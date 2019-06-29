@@ -1,4 +1,4 @@
-package one;
+package leetcode;
 
 /**
  * @auther k
@@ -8,7 +8,7 @@ package one;
 /**
  *  罗马数字转整数
  */
-public class S13RomanToInteger {
+public class L13RomanToInteger {
     public int romanToInt(String s) {
         int result = 0;
         for(int i = 0; i < s.length(); i++) {

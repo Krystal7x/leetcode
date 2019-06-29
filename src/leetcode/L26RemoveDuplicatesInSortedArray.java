@@ -1,4 +1,4 @@
-package one;
+package leetcode;
 
 /**
  * @auther k
@@ -8,7 +8,7 @@ package one;
  * 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
  */
 
-public class S26RemoveDuplicatesInSortedArray {
+public class L26RemoveDuplicatesInSortedArray {
 
     public int removeDuplicates(int[] nums) {
         if (null == nums || nums.length == 0){
@@ -43,7 +43,7 @@ public class S26RemoveDuplicatesInSortedArray {
 
     public static void main(String[] args) {
         int[] nums = new int[]{1};
-        S26RemoveDuplicatesInSortedArray a = new S26RemoveDuplicatesInSortedArray();
+        L26RemoveDuplicatesInSortedArray a = new L26RemoveDuplicatesInSortedArray();
         System.out.println(a.removeDuplicates(nums));
         for(int i : nums){
             System.out.println(i);

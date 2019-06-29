@@ -1,4 +1,4 @@
-package one;
+package leetcode;
 
 import common.ListNode;
 
@@ -13,7 +13,7 @@ import common.ListNode;
  * 您可以假设除了数字 0 之外，这两个数都不会以 0 开头。
  */
 
-public class S2AddTwoNumbers {
+public class L2AddTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         if(l1 == null && l2 == null){ return null;}
         if(l1 == null && l2 != null){ return l2;}

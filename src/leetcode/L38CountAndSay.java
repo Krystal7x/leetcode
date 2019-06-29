@@ -1,4 +1,4 @@
-package one;
+package leetcode;
 
 /**
  * @auther k
@@ -13,7 +13,7 @@ package one;
  * 5.     111221
  */
 
-public class S38CountAndSay {
+public class L38CountAndSay {
 
     public String countAndSay(int n) {
         String str = "1";
@@ -41,7 +41,7 @@ public class S38CountAndSay {
     }
 
     public static void main(String[] args) {
-        S38CountAndSay s = new S38CountAndSay();
+        L38CountAndSay s = new L38CountAndSay();
         System.out.println(s.countAndSay(5));
         System.out.println(s.countAndSay(6));
     }

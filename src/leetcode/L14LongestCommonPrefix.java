@@ -1,4 +1,4 @@
-package one;
+package leetcode;
 
 /**
  * @auther k
@@ -8,7 +8,7 @@ package one;
 /**
  *
  */
-public class S14LongestCommonPrefix {
+public class L14LongestCommonPrefix {
     public String longestCommonPrefix(String[] strs) {
         if (strs == null || strs.length == 0) {return "";}
         for (int i = 0; i < strs[0].length() ; i++){

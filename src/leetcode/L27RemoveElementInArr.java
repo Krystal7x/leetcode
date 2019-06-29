@@ -1,4 +1,4 @@
-package one;
+package leetcode;
 
 /**
  * @auther k
@@ -10,7 +10,7 @@ package one;
  * 元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。
  */
 
-public class S27RemoveElementInArr {
+public class L27RemoveElementInArr {
     public int removeElement(int[] nums, int val) {
         if (null == nums || nums.length == 0){
             return  0;
