@@ -6,7 +6,7 @@ package common;
  */
 
 public class TreeNode {
-    public int value;
+    public int val;
     public TreeNode left;
     public TreeNode right;
 
@@ -14,7 +14,7 @@ public class TreeNode {
     }
 
     public TreeNode(int v) {
-        value = v;
+        val = v;
     }
 
 }

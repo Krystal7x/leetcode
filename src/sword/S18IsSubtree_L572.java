@@ -18,7 +18,7 @@ public class S18IsSubtree_L572 {
     public boolean isSubtree(TreeNode s, TreeNode t) {
         boolean ans = false;
         if (s != null && t != null) {
-            if (s.value == t.value) {
+            if (s.val == t.val) {
                 ans = isSubtree2(s, t);
             }
             if (!ans) {
@@ -36,7 +36,7 @@ public class S18IsSubtree_L572 {
         if (p1 == null || p2 == null) {
             return false;
         }
-        if (p1.value != p2.value) {
+        if (p1.val != p2.val) {
             return false;
         }
 
