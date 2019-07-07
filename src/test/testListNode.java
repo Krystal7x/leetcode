@@ -1,5 +1,6 @@
-package common;
+package test;
 
+import common.ListNode;
 import sword.S15RemoveNthFromEnd_L19;
 
 /**
