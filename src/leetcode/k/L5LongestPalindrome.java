@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.k;
 
 /**
  * @auther k
