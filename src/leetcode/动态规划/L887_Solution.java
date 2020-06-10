@@ -19,7 +19,7 @@ package leetcode.动态规划;
  */
 public class L887_Solution {
     //最传统的动态规划，居然超时
-    public int superEggDrop(int K, int N) {
+    public int superEggDrop2(int K, int N) {
 
         int[][] dp = new int[N + 1][K + 1];
         for (int i = 1; i <= N; i++) dp[i][1] = i;
@@ -30,6 +30,37 @@ public class L887_Solution {
                 dp[i][j] = i;
                 for (int k = 1; k <= i; k++) {
                     dp[i][j] = Math.min(dp[i][j], Math.max(dp[k - 1][j - 1], dp[i - k][j]) + 1);
+                }
+            }
+        }
+        return dp[N][K];
+    }
+
+    /**
+     * 二分优化
+     */
+    public int superEggDrop(int K, int N) {
+
+        int[][] dp = new int[N + 1][K + 1];
+        for (int i = 1; i <= N; i++) dp[i][1] = i;
+        for (int i = 1; i <= K; i++) dp[1][i] = 1;
+
+        for (int i = 2; i <= N; i++) {
+            for (int j = 2; j <= K; j++) {
+                dp[i][j] = i;
+                int x = 1;
+                int y = i;
+                while (x <= y) {
+                    int mid = (x + y) / 2;
+                    int broke = dp[mid - 1][j - 1];
+                    int not_broke = dp[i - mid][j];
+                    if (broke > not_broke) {
+                        y = mid - 1;
+                        dp[i][j] = Math.min(dp[i][j], broke + 1);
+                    } else {
+                        x = mid + 1;
+                        dp[i][j] = Math.min(dp[i][j], not_broke + 1);
+                    }
                 }
             }
         }
