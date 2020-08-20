@@ -1,4 +1,4 @@
-package leetcode.技巧类.其他;
+package leetcode.技巧类.数值计算;
 
 /**
  * 描述:
