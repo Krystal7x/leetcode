@@ -1,4 +1,4 @@
-package leetcode.动态规划;
+package leetcode.贪心算法;
 
 import java.util.Arrays;
 import java.util.Comparator;
