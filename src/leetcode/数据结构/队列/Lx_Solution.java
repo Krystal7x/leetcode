@@ -8,7 +8,7 @@ import common.ListNode;
  * @author luokui
  * @create 2020-08-27 14:26
  */
-public class sword18 {
+public class Lx_Solution {
 
     int length = 0; // 链表长度，非必须，可不加
     ListNode head = new ListNode(0); // 哨兵节点
