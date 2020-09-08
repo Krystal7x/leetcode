@@ -1,6 +1,5 @@
 package leetcode.数据结构.二叉树;
 
-import com.mogujie.service.diana.v2.listener.couponconfig.CouponConfigProcessListener;
 import common.TreeNode;
 
 import java.util.LinkedList;
@@ -48,7 +47,7 @@ public class L94_BinaryTreeInorderTraversal {
          * @param root
          * @param list
          */
-        public void preorderTraversal(CouponConfigProcessListener.TreeNode root, List<Integer> list) {
+        public void preorderTraversal(TreeNode root, List<Integer> list) {
             if (root == null) return;
             list.add(root.val);
             preorderTraversal(root.left, list);
@@ -62,11 +61,11 @@ public class L94_BinaryTreeInorderTraversal {
          * @param root
          * @param list
          */
-        public void preorderTraversal2(CouponConfigProcessListener.TreeNode root, List<Integer> list) {
-            Stack<CouponConfigProcessListener.TreeNode> stack = new Stack<>();
+        public void preorderTraversal2(TreeNode root, List<Integer> list) {
+            Stack<TreeNode> stack = new Stack<>();
             stack.push(root);
             while (!stack.isEmpty()) {
-                CouponConfigProcessListener.TreeNode pop = stack.pop();
+                TreeNode pop = stack.pop();
                 list.add(pop.val);
                 //先处理右节点，可是使栈弹出的时候，先处理左节点
                 if (pop.right != null) stack.push(pop.right);
@@ -95,9 +94,9 @@ public class L94_BinaryTreeInorderTraversal {
          * @param root
          * @param list
          */
-        public void inorderTraversal2(CouponConfigProcessListener.TreeNode root, List<Integer> list) {
+        public void inorderTraversal2(TreeNode root, List<Integer> list) {
             if (root == null) return;
-            Stack<CouponConfigProcessListener.TreeNode> s = new Stack<>();
+            Stack<TreeNode> s = new Stack<>();
             while (!s.isEmpty() || root != null) {
                 //先把左边全部压进栈
                 while (root != null) {
@@ -120,7 +119,7 @@ public class L94_BinaryTreeInorderTraversal {
          * @param root
          * @param list
          */
-        public void postorderTraversal(CouponConfigProcessListener.TreeNode root, List<Integer> list) {
+        public void postorderTraversal(TreeNode root, List<Integer> list) {
             if (root == null) return;
             postorderTraversal(root.left, list);
             postorderTraversal(root.right, list);
@@ -132,20 +131,20 @@ public class L94_BinaryTreeInorderTraversal {
          *
          * @param root
          */
-        public static void postorderTraversal2(CouponConfigProcessListener.TreeNode root, List<Integer> list) {
+        public  void postorderTraversal2(TreeNode root, List<Integer> list) {
             if (root == null) return;
             //双栈法
-            Stack<CouponConfigProcessListener.TreeNode> stack1 = new Stack<>();
-            Stack<CouponConfigProcessListener.TreeNode> stack2 = new Stack<>();
+            Stack<TreeNode> stack1 = new Stack<>();
+            Stack<TreeNode> stack2 = new Stack<>();
             while (!stack1.isEmpty()) {
-                CouponConfigProcessListener.TreeNode pop = stack1.pop();
+                TreeNode pop = stack1.pop();
                 //加入s2时要按照 中右左 的顺序
                 stack2.push(pop);
                 if (pop.left != null) stack1.push(pop.left);
                 if (pop.right != null) stack1.push(pop.right);
             }
             while (!stack2.isEmpty()) {
-                CouponConfigProcessListener.TreeNode pop = stack2.pop();
+                TreeNode pop = stack2.pop();
                 list.add(pop.val);
             }
 
