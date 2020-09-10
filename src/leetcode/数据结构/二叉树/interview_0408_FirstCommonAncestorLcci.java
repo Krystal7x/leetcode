@@ -92,9 +92,5 @@ public class interview_0408_FirstCommonAncestorLcci {
 
     public static void main(String[] args) {
         Solution solution = new interview_0408_FirstCommonAncestorLcci().new Solution();
-        TreeNode n = new TreeNode(4);
-        List<TreeNode> path = solution.getPath(TreeNode.getTestTree(), n);
-        path.size();
-
     }
 }

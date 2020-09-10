@@ -1,5 +1,8 @@
 package common;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * @auther k
  * @date 2019-06-29 15:41
@@ -17,42 +20,57 @@ public class TreeNode {
         val = v;
     }
 
+
     /**
-     *     3
-     *    / \
-     *   5   1
-     *  / \ / \
-     * 6  2 0  8
-     *   / \
-     *  7   4
+     * 这个写法是参考L297那里的，不是很优雅
      *
+     * @param data
      * @return
      */
-    public static TreeNode getTestTree() {
-        TreeNode n1 = new TreeNode(3);
-        TreeNode n2 = new TreeNode(5);
-        TreeNode n3 = new TreeNode(1);
-        TreeNode n4 = new TreeNode(6);
-        TreeNode n5 = new TreeNode(2);
-        TreeNode n6 = new TreeNode(0);
-        TreeNode n7 = new TreeNode(8);
-        TreeNode n8 = new TreeNode(7);
-        TreeNode n9 = new TreeNode(4);
+    public static TreeNode getTestTree(String data) {
+        if (data == null || data.length() == 0) return null;
+        String[] vals = data.split(",");
+        TreeNode root = new TreeNode(Integer.parseInt(vals[0]));
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int index = 1;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode n = queue.poll();
+                if (n == null) {
+                    continue;
+                } else {
+                    TreeNode left = getNode(vals, index);
+                    index++;
+                    TreeNode right = getNode(vals, index);
+                    index++;
+                    n.left = left;
+                    n.right = right;
+                    queue.add(left);
+                    queue.add(right);
+                }
+            }
+        }
+        return root;
+    }
 
-        n1.left = n2;
-        n1.right = n3;
 
-        n2.left = n4;
-        n2.right = n5;
+    public static TreeNode getNode(String[] nums, int index) {
+        if (index < nums.length) {
+            if (nums[index].equals("null")) {
+                return null;
+            }
+            return new TreeNode(Integer.parseInt(nums[index]));
+        }
+        return null;
 
-        n3.left = n6;
-        n3.right = n7;
-
-        n5.left = n8;
-        n5.right = n9;
-        return n1;
+    }
 
 
+    public static void main(String[] args) {
+        TreeNode n = TreeNode.getTestTree("5,3,6,2,4,null,null,1");
+        System.out.println(n.val);
     }
 
 
