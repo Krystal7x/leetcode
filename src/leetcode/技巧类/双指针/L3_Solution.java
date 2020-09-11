@@ -17,6 +17,7 @@ import java.util.Map;
  * @create 2020-07-20 18:01
  */
 public class L3_Solution {
+    //还可以用动态规划来做，看L5
     int lengthOfLongestSubstring(String s) {
         if (s == null || s.length() == 0) {
             return 0;

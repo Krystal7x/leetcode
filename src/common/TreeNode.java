@@ -56,7 +56,7 @@ public class TreeNode {
     }
 
 
-    public static TreeNode getNode(String[] nums, int index) {
+    private static TreeNode getNode(String[] nums, int index) {
         if (index < nums.length) {
             if (nums[index].equals("null")) {
                 return null;
