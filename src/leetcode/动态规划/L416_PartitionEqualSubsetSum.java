@@ -37,17 +37,28 @@ public class L416_PartitionEqualSubsetSum {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean canPartition(int[] nums) {
+            if (nums == null || nums.length == 0) return true;
+            if (nums.length == 1) return false;
             int length = nums.length;
             int target = 0;
             for (int n : nums) {
                 target += n;
             }
+            if (target % 2 != 0) return false;
             target = target / 2;
             //dp[i][j]:只有i个物品，容量是j的时候是否装满
             boolean[][] dp = new boolean[length + 1][target + 1];
+            //容量为0时一定能装满
+            for (int i = 0; i <= length; i++) {
+                dp[i][0] = true;
+            }
             for (int i = 1; i <= length; i++) {
                 for (int j = 1; j <= target; j++) {
-                    dp[i][j] = dp[i - 1][j] || dp[i][j - nums[i - 1]];
+                    if (j - nums[i - 1] < 0) {
+                        dp[i][j] = false;
+                    } else {
+                        dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i - 1]];
+                    }
                 }
             }
 

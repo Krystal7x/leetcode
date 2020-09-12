@@ -27,6 +27,9 @@ public class L322_CoinChange {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int coinChange(int[] coins, int amount) {
+            if (coins == null || coins.length == 0 || amount <= 0) {
+                return 0;
+            }
             return 0;
 
         }

@@ -33,20 +33,19 @@ package leetcode.动态规划;
 // Related Topics 动态规划 
 // 👍 1063 👎 0
 
-public class L198_HouseRobber{
+public class L198_HouseRobber {
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int rob(int[] nums) {
-        return 0;
+    class Solution {
+        public int rob(int[] nums) {
+            return 0;
 
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
-    
-    
-	public static void main(String[] args) {
-		Solution solution = new L198_HouseRobber().new Solution();
-		
-	}
+
+    public static void main(String[] args) {
+        Solution solution = new L198_HouseRobber().new Solution();
+
+    }
 }
