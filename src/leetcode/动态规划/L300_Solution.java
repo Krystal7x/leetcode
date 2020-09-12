@@ -20,6 +20,7 @@ public class L300_Solution {
         if (nums.length == 1) {
             return 1;
         }
+        //dp[i]含义：以i结尾的最大递增子序列长度
         int[] dp = new int[nums.length];
         dp[0] = 1;
         for (int i = 1; i < nums.length; i++) {
