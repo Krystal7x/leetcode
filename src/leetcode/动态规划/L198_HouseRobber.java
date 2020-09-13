@@ -33,19 +33,33 @@ package leetcode.动态规划;
 // Related Topics 动态规划 
 // 👍 1063 👎 0
 
-public class L198_HouseRobber {
+public class L198_HouseRobber{
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int rob(int[] nums) {
-            return 0;
+            if (nums == null || nums.length == 0) return 0;
+
+            //dp含义:第i个时最大价值
+            int[] rob = new int[nums.length + 1];
+
+            rob[1] = nums[0];
+
+            for (int i = 2; i <= nums.length; i++) {
+                //第i个偷时的最大值
+                //可压缩
+                rob[i] = Math.max(rob[i - 2] + nums[i - 1], rob[i - 1]);
+            }
+
+            return rob[nums.length];
 
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
 
-
-    public static void main(String[] args) {
-        Solution solution = new L198_HouseRobber().new Solution();
-
-    }
+    
+    
+	public static void main(String[] args) {
+		Solution solution = new L198_HouseRobber().new Solution();
+		
+	}
 }
