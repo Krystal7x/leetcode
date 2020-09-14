@@ -61,7 +61,7 @@ public class L122_BestTimeToBuyAndSellStockIi {
 
             for (int i = 1; i <= length; i++) {
                 //持有的最大利润
-                //因为你只能持有无数次，所以持有的利润可以根据卖出再持有来算，这是与121的区别
+                //因为你能持有无数次，所以持有的利润可以根据卖出再持有来算，这是与121的区别
                 dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] - prices[i - 1]);
                 //卖出的最大利润
                 dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] + prices[i - 1]);
