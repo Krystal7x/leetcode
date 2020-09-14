@@ -21,6 +21,7 @@ public class L123_Solution {
         }
         //正序
         int min = prices[0];
+        //dp[]含义，正着卖，到i为止的最大收益
         int[] seq = new int[prices.length];
         for (int i = 1; i < prices.length; i++) {
             min = Math.min(min, prices[i]);
@@ -29,6 +30,7 @@ public class L123_Solution {
 
         //逆序
         int max = prices[prices.length - 1];
+        //dp[]含义，反着卖，到i为止的最大收益
         int[] rev = new int[prices.length];
         for (int i = prices.length - 2; i >= 0; i--) {
             rev[i] = Math.max(rev[i + 1], max - prices[i]);
