@@ -40,6 +40,11 @@ public class L188_BestTimeToBuyAndSellStockIv {
             if (prices == null || prices.length < 2) return 0;
             int length = prices.length;
 
+            //一次交易由买入和卖出构成，至少需要两天。所以说有效的限制 k 应该不超过 n/2，如果超过，就没有约束作用了，相当于 k = +infinity。这种情况是之前解决过的。
+            if (K > length / 2) {
+                return new L122_BestTimeToBuyAndSellStockIi().new Solution().maxProfit(prices);
+            }
+
             //dp[i][k][1]含义 第i天最多k次交易时的最大利润,0持有，1卖出
             int[][][] dp = new int[length + 1][K + 1][2];
 
