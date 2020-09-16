@@ -35,8 +35,7 @@ public class interview0813_PileBoxLcci {
         public int pileBox(int[][] box) {
             if (box == null || box.length == 0) return 0;
             //这个排序牛逼啊
-            Arrays.sort(box, (a, b) -> a[0] == b[0] ? a[1] == b[1] ? b[2] - a[2] : b[1] - a[1] : a[0] - b[0]);
-
+            Arrays.sort(box, (a, b) -> a[0] == b[0] ? a[1] == b[1] ? a[2] - b[2] : a[1] - b[1] : a[0] - b[0]);
             int length = box.length;
             int[] height = new int[length];
             for (int i = 0; i < length; i++) {
