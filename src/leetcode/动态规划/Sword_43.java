@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package leetcode.动态规划;
 
 //输入一个整数 n ，求1～n这n个整数的十进制表示中1出现的次数。 
 //
@@ -34,24 +34,8 @@ public class Sword_43 {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int countDigitOne(int n) {
-            if (n == 0) return 0;
-            int digit = (int) Math.log10(n) + 1;
-            int[][] dp = new int[digit + 1][2];
-            dp[1][0] = n / 10 == 0 ? 0 : 1;
-            dp[1][1] = 1;
-            for (int i = 2; i <= digit; i++) {
-                int k = n / (int) (Math.pow(10, i - 1)) / 10;
-                dp[i][0] = k * dp[i - 1][1] + dp[i - 1][0];
-                if (k == 1) {
-                    dp[i][0] += n % (int) (Math.pow(10, i - 1)) + 1;
-                }
-                if (k > 1) {
-                    dp[i][0] += Math.pow(10, k);
-                }
-                dp[i][1] = k * dp[i - 1][1] + 1;
 
-            }
-            return dp[digit][0];
+            return 233;
 
 
         }
@@ -61,6 +45,7 @@ public class Sword_43 {
 
     public static void main(String[] args) {
         Solution solution = new Sword_43().new Solution();
+        System.out.println(solution.countDigitOne(100));
 
     }
 }
