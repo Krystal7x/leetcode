@@ -24,8 +24,40 @@ package leetcode.动态规划;
 public class L213_HouseRobberIi {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        /**
+         * 环形数组一半将数组*2模拟,这里没用
+         *
+         * @param nums
+         * @return
+         */
         public int rob(int[] nums) {
-            return 0;
+            if (nums == null || nums.length == 0) return 0;
+            int length = nums.length;
+            if (nums.length == 1) return nums[0];
+            //1、第一个强，最后一个不强
+            int max1 = rob2(nums, 1, length);
+            //2、第一个不强，最后一个强
+            int max2 = rob2(nums, 0, length - 1);
+            return Math.max(max1, max2);
+        }
+
+
+        public int rob2(int[] list, int x, int y) {
+            int nums[] = new int[list.length - 1];
+            for (int i = 0; x < y; x++, i++) {
+                nums[i] = list[x];
+            }
+            //dp含义:第i个时最大价值
+            int[] rob = new int[nums.length + 1];
+
+            rob[1] = nums[0];
+
+            for (int i = 2; i <= nums.length; i++) {
+                //第i个偷时的最大值
+                //可压缩
+                rob[i] = Math.max(rob[i - 2] + nums[i - 1], rob[i - 1]);
+            }
+            return rob[nums.length];
 
         }
     }

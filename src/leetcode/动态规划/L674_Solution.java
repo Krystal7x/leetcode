@@ -14,7 +14,7 @@ package leetcode.动态规划;
  * @author luokui
  * @create 2020-06-02 21:00
  */
-public class L647_Solution {
+public class L674_Solution {
     public int findLengthOfLCIS(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
