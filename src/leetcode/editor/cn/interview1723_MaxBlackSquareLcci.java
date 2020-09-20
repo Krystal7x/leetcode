@@ -44,6 +44,32 @@ public class interview1723_MaxBlackSquareLcci {
             return null;
 
         }
+
+
+
+        public int findRight(int[][] matrix, int x, int y) {
+            int length = matrix[0].length;
+            while (y < length) {
+                if (matrix[x][y] == 0) {
+                    y++;
+                } else {
+                    break;
+                }
+            }
+            return y;
+        }
+
+        public int findDown(int[][] matrix, int x, int y) {
+            int length = matrix.length;
+            while (x < length) {
+                if (matrix[x][y] == 0) {
+                    x++;
+                } else {
+                    break;
+                }
+            }
+            return x;
+        }
     }
 //leetcode submit region end(Prohibit modification and deletion)
 
