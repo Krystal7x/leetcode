@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package leetcode.动态规划;
 
 //如果连续数字之间的差严格地在正数和负数之间交替，则数字序列称为摆动序列。第一个差（如果存在的话）可能是正数或负数。少于两个元素的序列也是摆动序列。 
 //
@@ -35,25 +35,25 @@ public class L376_WiggleSubsequence {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int wiggleMaxLength(int[] nums) {
+            if (nums == null || nums.length == 0) return 0;
             int[][] dp = new int[nums.length][2];
             //0是升序，1是降序
             dp[0][0] = 1;
             dp[0][1] = 1;
             int max = 1;
             for (int i = 1; i < nums.length; i++) {
-                for (int j = 0; j < i; j++) {
-                    if (nums[i] > nums[j]) {
-                        dp[i][0] = Math.max(dp[i][0], dp[j][1] + 1);
-                    }
-                    if (nums[i] < nums[j]) {
-                        dp[i][1] = Math.max(dp[i][1], dp[j][0] + 1);
-                    }
-                    if (nums[i] == nums[j]) {
-                        dp[i][1] = Math.max(dp[i][1], dp[j][0]);
-                        dp[i][0] = Math.max(dp[i][0], dp[j][1]);
-                    }
-
-
+                dp[i][0] = 1;
+                dp[i][1] = 1;
+                //根据条件设置
+                if (nums[i] > nums[i - 1]) {
+                    dp[i][1] = dp[i - 1][0] + 1;
+                    dp[i][0] = dp[i - 1][0];
+                } else if (nums[i] < nums[i - 1]) {
+                    dp[i][0] = dp[i - 1][1] + 1;
+                    dp[i][1] = dp[i - 1][1];
+                } else if (nums[i] == nums[i - 1]) {
+                    dp[i][1] = dp[i - 1][1];
+                    dp[i][0] = dp[i - 1][0];
                 }
                 max = Math.max(dp[i][0], max);
                 max = Math.max(dp[i][1], max);

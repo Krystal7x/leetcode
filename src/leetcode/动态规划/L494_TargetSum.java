@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package leetcode.动态规划;
 
 //给定一个非负整数数组，a1, a2, ..., an, 和一个目标数，S。现在你有两个符号 + 和 -。对于数组中的任意一个整数，你都可以从 + 或 -中选
 //择一个符号添加在前面。 
@@ -39,7 +39,6 @@ public class L494_TargetSum {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         /**
-         *
          * @param nums
          * @param S
          * @return
@@ -53,9 +52,14 @@ public class L494_TargetSum {
             if ((sum + S) % 2 == 1) return 0;
             int target = (sum + S) / 2;
             int[][] dp = new int[nums.length + 1][target + 1];
+
+            for (int i = 0; i <= nums.length; i++) {
+                dp[i][0] = 1;
+            }
+
             for (int i = 1; i <= nums.length; i++) {
                 for (int j = 0; j <= target; j++) {
-                    if (j > nums[i - 1]) {
+                    if (j >= nums[i - 1]) {
                         dp[i][j] = dp[i - 1][j - nums[i - 1]] + dp[i - 1][j];
                     } else {
                         dp[i][j] = dp[i - 1][j];
