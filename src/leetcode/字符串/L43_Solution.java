@@ -1,4 +1,4 @@
-package leetcode.数据结构.数组;
+package leetcode.字符串;
 
 /**
  * 描述:大数相乘
