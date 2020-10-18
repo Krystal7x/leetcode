@@ -47,13 +47,16 @@ public class interview1706_NumberOf2sInRangeLcci {
 
             for (int i = 2; i <= digit; i++) {
                 int k = n / (int) Math.pow(10, i - 1) % 10;
+                //先是低一位
                 dp[i][0] = k * dp[i - 1][1] + dp[i - 1][0];
+                //再是最高位
                 if (k > 2) {
                     dp[i][0] = dp[i][0] + (int) Math.pow(10, i - 1);
                 }
                 if (k == 2) {
                     dp[i][0] = dp[i][0] + (n % (int) Math.pow(10, i - 1)) + 1;
                 }
+                //计算999的数量
                 dp[i][1] = 10 * dp[i - 1][1] + (int) Math.pow(10, i - 1);
             }
             return dp[digit][0];
