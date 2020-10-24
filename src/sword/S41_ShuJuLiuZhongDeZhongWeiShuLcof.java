@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package sword;
 
 //如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数
 //值排序之后中间两个数的平均值。 
@@ -45,24 +45,43 @@ package leetcode.editor.cn;
 // 👍 78 👎 0
 
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 public class S41_ShuJuLiuZhongDeZhongWeiShuLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class MedianFinder {
+        //最小堆 456放右边的值
+        Queue<Double> minStack;
+        //最大堆 123放左边的值
+        Queue<Double> maxStack;
 
         /**
          * initialize your data structure here.
          */
         public MedianFinder() {
-
+            minStack = new PriorityQueue<>();
+            maxStack = new PriorityQueue<>((o1, o2) -> o2.intValue() - o1.intValue());
         }
 
         public void addNum(int num) {
-
+            if (minStack.size() == maxStack.size()) {
+                minStack.add(new Double(num));
+                maxStack.add(minStack.poll());
+            } else {
+                maxStack.add(new Double(num));
+                minStack.add(maxStack.poll());
+            }
         }
 
         public double findMedian() {
-            return 0;
-
+            if (maxStack.isEmpty() && minStack.isEmpty()) return -1;
+            if (minStack.size() == maxStack.size()) {
+                return (minStack.peek() + maxStack.peek()) / 2;
+            } else {
+                return maxStack.peek();
+            }
         }
     }
 

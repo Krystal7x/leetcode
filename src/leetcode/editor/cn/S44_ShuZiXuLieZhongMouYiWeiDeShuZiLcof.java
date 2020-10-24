@@ -35,6 +35,12 @@ public class S44_ShuZiXuLieZhongMouYiWeiDeShuZiLcof{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int findNthDigit(int n) {
+        //0    1个
+        //1位数 9个
+        //2位数 90个
+        //3位数 900个
+
+
         return 0;
     }
 }
