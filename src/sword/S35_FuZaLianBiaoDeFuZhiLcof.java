@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package sword;
 
 //请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指
 //向链表中的任意节点或者 null。 
@@ -58,7 +58,7 @@ package leetcode.editor.cn;
 
 import common.Node;
 
-public class S35_FuZaLianBiaoDeFuZhiLcof{
+public class S35_FuZaLianBiaoDeFuZhiLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
 /*
 // Definition for a Node.
@@ -74,17 +74,45 @@ class Node {
     }
 }
 */
-class Solution {
-    public Node copyRandomList(Node head) {
-        return null;
+    class Solution {
+        public Node copyRandomList(Node head) {
+            if (head == null) return null;
+            Node origin = head;
+            //先复制next
+            while (origin != null) {
+                Node copy = new Node(origin.val);
+                copy.next = origin.next;
+                origin.next = copy;
+                origin = copy.next;
+            }
+            //再复制random
+            origin = head;
+            while (origin != null) {
+                Node copy = origin.next;
+                if (origin.random != null) {
+                    copy.random = origin.random.next;
+                }
+                origin = copy.next;
+            }
+            //拆开列表
+            origin = head;
+            Node ans = head.next;
+            Node copyHead = origin.next;
+            while (copyHead.next != null) {
+                origin.next = copyHead.next;
+                copyHead.next = origin.next.next;
+                origin = origin.next;
+                copyHead = copyHead.next;
+            }
+            origin.next = null;
+            return ans;
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
-    
-    
-	public static void main(String[] args) {
-		Solution solution = new S35_FuZaLianBiaoDeFuZhiLcof().new Solution();
-		
-	}
+
+    public static void main(String[] args) {
+        Solution solution = new S35_FuZaLianBiaoDeFuZhiLcof().new Solution();
+
+    }
 }

@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package sword;
 
 //数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。 
 //
@@ -28,19 +28,23 @@ package leetcode.editor.cn;
 // 👍 82 👎 0
 
 
-public class S39_ShuZuZhongChuXianCiShuChaoGuoYiBanDeShuZiLcof{
+public class S39_ShuZuZhongChuXianCiShuChaoGuoYiBanDeShuZiLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int majorityElement(int[] nums) {
-        return 0;
+    class Solution {
+        public int majorityElement(int[] nums) {
+            int x = 0, votes = 0;
+            for (int num : nums) {
+                if (votes == 0) x = num;
+                votes += num == x ? 1 : -1;
+            }
+            return x;
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
-    
-    
-	public static void main(String[] args) {
-		Solution solution = new S39_ShuZuZhongChuXianCiShuChaoGuoYiBanDeShuZiLcof().new Solution();
-		
-	}
+
+    public static void main(String[] args) {
+        Solution solution = new S39_ShuZuZhongChuXianCiShuChaoGuoYiBanDeShuZiLcof().new Solution();
+
+    }
 }
