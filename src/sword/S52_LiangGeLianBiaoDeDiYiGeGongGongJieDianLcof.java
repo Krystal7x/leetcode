@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package sword;
 
 //输入两个链表，找出它们的第一个公共节点。 
 //
@@ -65,30 +65,56 @@ package leetcode.editor.cn;
 
 import common.ListNode;
 
-public class S52_LiangGeLianBiaoDeDiYiGeGongGongJieDianLcof{
+public class S52_LiangGeLianBiaoDeDiYiGeGongGongJieDianLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
- */
-public class Solution {
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        return null;
+
+    /**
+     * Definition for singly-linked list.
+     * public class ListNode {
+     * int val;
+     * ListNode next;
+     * ListNode(int x) {
+     * val = x;
+     * next = null;
+     * }
+     * }
+     */
+    public class Solution {
+        public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+            ListNode a = headA;
+            ListNode b = headB;
+            while (a != null && b != null) {
+                a = a.next;
+                b = b.next;
+            }
+            ListNode a2 = headA;
+            ListNode b2 = headB;
+            if (a != null) {
+                while (a != null) {
+                    a = a.next;
+                    a2 = a2.next;
+                }
+            }
+            if (b != null) {
+                while (b != null) {
+                    b = b.next;
+                    b2 = b2.next;
+                }
+            }
+
+            while (a2 != null && b2 != null) {
+                if (a2 == b2) return a2;
+                a2 = a2.next;
+                b2 = b2.next;
+            }
+            return null;
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
-    
-    
- public static void main(String[] args) {
-  Solution solution = new S52_LiangGeLianBiaoDeDiYiGeGongGongJieDianLcof().new Solution();
-  
- }
+
+    public static void main(String[] args) {
+        Solution solution = new S52_LiangGeLianBiaoDeDiYiGeGongGongJieDianLcof().new Solution();
+
+    }
 }

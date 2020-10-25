@@ -131,11 +131,12 @@ public class L94_BinaryTreeInorderTraversal {
          *
          * @param root
          */
-        public  void postorderTraversal2(TreeNode root, List<Integer> list) {
+        public void postorderTraversal2(TreeNode root, List<Integer> list) {
             if (root == null) return;
             //双栈法
             Stack<TreeNode> stack1 = new Stack<>();
             Stack<TreeNode> stack2 = new Stack<>();
+            stack1.push(root);
             while (!stack1.isEmpty()) {
                 TreeNode pop = stack1.pop();
                 //加入s2时要按照 中右左 的顺序

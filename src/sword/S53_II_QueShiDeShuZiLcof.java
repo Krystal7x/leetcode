@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package sword;
 
 //一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0～n-1之内。在范围0～n-1内的n个数字中有且只有一个数字不在该数组中，请找出
 //这个数字。 
@@ -25,19 +25,21 @@ package leetcode.editor.cn;
 // 👍 72 👎 0
 
 
-public class S53_II_QueShiDeShuZiLcof{
+public class S53_II_QueShiDeShuZiLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int missingNumber(int[] nums) {
-        return 0;
+    class Solution {
+        public int missingNumber(int[] nums) {
+            for (int i = 0; i < nums.length; i++) {
+                if (i != nums[i]) return i;
+            }
+            return nums.length;
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
-    
-    
- public static void main(String[] args) {
-  Solution solution = new S53_II_QueShiDeShuZiLcof().new Solution();
-  
- }
+
+    public static void main(String[] args) {
+        Solution solution = new S53_II_QueShiDeShuZiLcof().new Solution();
+
+    }
 }
