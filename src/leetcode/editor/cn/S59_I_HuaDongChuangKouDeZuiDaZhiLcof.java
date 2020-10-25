@@ -36,13 +36,29 @@ public class S59_I_HuaDongChuangKouDeZuiDaZhiLcof {
     class Solution {
         public int[] maxSlidingWindow(int[] nums, int k) {
             int[] ans = new int[nums.length - k];
-            Queue<Integer> windows = new LinkedList<>();
-            for (int i = 0; i < nums.length; i++) {
+            int left = 0;
+
+            for (int right = 1; right < nums.length; right++) {
+
+                while (nums[left] < nums[right]) {
+                    left++;
+                }
+
+
+                //窗口大小 大于  k
+                if (right - left + 1 > k) {
+                    left++;
+
+
+                }
+                //窗口大小 等于 k
 
             }
             return ans;
         }
+
     }
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 

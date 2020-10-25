@@ -33,9 +33,12 @@ package leetcode.editor.cn;
 // 👍 156 👎 0
 
 
+import java.util.Queue;
+
 public class S59_II_DuiLieDeZuiDaZhiLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class MaxQueue {
+
 
         public MaxQueue() {
 
