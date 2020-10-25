@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package sword;
 
 //字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。请定义一个函数实现字符串左旋转操作的功能。比如，输入字符串"abcdefg"和数字2，该函数
 //将返回左旋转两位得到的结果"cdefgab"。 
@@ -28,19 +28,23 @@ package leetcode.editor.cn;
 // 👍 56 👎 0
 
 
-public class S58_II_ZuoXuanZhuanZiFuChuanLcof{
+public class S58_II_ZuoXuanZhuanZiFuChuanLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public String reverseLeftWords(String s, int n) {
-        return null;
+    class Solution {
+        public String reverseLeftWords(String s, int n) {
+            StringBuilder res = new StringBuilder();
+            for (int i = n; i < s.length(); i++)
+                res.append(s.charAt(i));
+            for (int i = 0; i < n; i++)
+                res.append(s.charAt(i));
+            return res.toString();
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
-    
-    
- public static void main(String[] args) {
-  Solution solution = new S58_II_ZuoXuanZhuanZiFuChuanLcof().new Solution();
-  
- }
+
+    public static void main(String[] args) {
+        Solution solution = new S58_II_ZuoXuanZhuanZiFuChuanLcof().new Solution();
+
+    }
 }

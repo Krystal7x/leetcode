@@ -28,11 +28,19 @@ package leetcode.editor.cn;
 // 👍 132 👎 0
 
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class S59_I_HuaDongChuangKouDeZuiDaZhiLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int[] maxSlidingWindow(int[] nums, int k) {
-            return null;
+            int[] ans = new int[nums.length - k];
+            Queue<Integer> windows = new LinkedList<>();
+            for (int i = 0; i < nums.length; i++) {
+
+            }
+            return ans;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
