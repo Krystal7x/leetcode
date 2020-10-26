@@ -31,10 +31,57 @@ package leetcode.editor.cn;
 public class S60_NgeTouZiDeDianShuLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        int[] dice = new int[]{1, 2, 3, 4, 5, 6};
+
         public double[] twoSum(int n) {
-            return null;
+            //所有可能的结果
+            int[] diceSum = new int[6 * n + 1];
+            //所有可能出现的和
+            for (int target = n; target <= 6 * n; target++) {
+                twoSum(diceSum, target, 0, n, 0);
+            }
+            //计算概率
+            int count = 0;
+            int may = 0;
+            for (int i = 0; i < diceSum.length; i++) {
+                if (diceSum[i] != 0) {
+                    may++;
+                    count += diceSum[i];
+                }
+            }
+            int index = 0;
+            double[] ans = new double[may];
+            for (int i = 0; i < diceSum.length; i++) {
+                if (diceSum[i] != 0) {
+                    ans[index++] = (diceSum[i] + 0.0d) / count;
+                }
+            }
+            return ans;
         }
+
+        /**
+         * @param diceSum 记录结果
+         * @param target  目标值
+         * @param sum     目前的和
+         * @param n       一共扔几次
+         * @param k       目前是第几次
+         */
+        public void twoSum(int[] diceSum, int target, int sum, int n, int k) {
+            if (sum > target) return;
+            if (target - sum > (n - k) * 6) return;
+            if (k == n) {
+                if (sum == target) {
+                    diceSum[target]++;
+                }
+                return;
+            }
+            for (int i = 0; i < dice.length; i++) {
+                twoSum(diceSum, target, sum + dice[i], n, k + 1);
+            }
+        }
+
     }
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 

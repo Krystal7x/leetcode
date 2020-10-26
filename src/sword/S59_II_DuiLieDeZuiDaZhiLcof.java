@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package sword;
 
 //请定义一个队列并实现函数 max_value 得到队列里的最大值，要求函数max_value、push_back 和 pop_front 的均摊时间复杂度都
 //是O(1)。 
@@ -33,27 +33,39 @@ package leetcode.editor.cn;
 // 👍 156 👎 0
 
 
-import java.util.Queue;
+import java.util.LinkedList;
 
 public class S59_II_DuiLieDeZuiDaZhiLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class MaxQueue {
-
+        LinkedList<Integer> queue;
+        LinkedList<Integer> max;
 
         public MaxQueue() {
-
+            queue = new LinkedList<>();
+            max = new LinkedList<>();
         }
 
         public int max_value() {
-            return 0;
+            if (max.isEmpty()) return -1;
+            return max.peekFirst();
         }
 
         public void push_back(int value) {
-
+            queue.add(value);
+            while (!max.isEmpty() && max.peekLast() < value) {
+                max.removeLast();
+            }
+            max.add(value);
         }
 
         public int pop_front() {
-            return 0;
+            if (queue.isEmpty()) return -1;
+            Integer value = queue.pollFirst();
+            if (max.peekFirst().equals(value)) {
+                max.pollFirst();
+            }
+            return value;
         }
     }
 
