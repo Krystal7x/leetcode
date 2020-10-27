@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package sword;
 
 //写一个函数，求两个整数之和，要求在函数体内不得使用 “+”、“-”、“*”、“/” 四则运算符号。 
 //
@@ -23,8 +23,21 @@ package leetcode.editor.cn;
 public class S65_BuYongJiaJianChengChuZuoJiaFaLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        /**
+         * 使用二进制
+         *
+         * @param a
+         * @param b
+         * @return
+         */
         public int add(int a, int b) {
-            return 0;
+            //直到不需要进位
+            while (b != 0) {
+                int c = (a & b) << 1;
+                a = a ^ b;
+                b = c;
+            }
+            return a;
 
         }
     }

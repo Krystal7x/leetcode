@@ -23,12 +23,12 @@ package leetcode.字符串;
 // 输入:
 //beginWord = "hit",
 //endWord = "cog",
-//wordList = ["hot","dot","dog","lot","log","cog"]
+//wordList = ["hot100","dot","dog","lot","log","cog"]
 //
 //输出:
 //[
-//  ["hit","hot","dot","dog","cog"],
-//  ["hit","hot","lot","log","cog"]
+//  ["hit","hot100","dot","dog","cog"],
+//  ["hit","hot100","lot","log","cog"]
 //]
 // 
 //
@@ -37,7 +37,7 @@ package leetcode.字符串;
 // 输入:
 //beginWord = "hit"
 //endWord = "cog"
-//wordList = ["hot","dot","dog","lot","log"]
+//wordList = ["hot100","dot","dog","lot","log"]
 //
 //输出: []
 //
@@ -152,7 +152,7 @@ public class L126_WordLadderIi {
     public static void main(String[] args) {
         Solution solution = new L126_WordLadderIi().new Solution();
         LinkedList<String> lists = new LinkedList<>();
-        lists.add("hot");
+        lists.add("hot100");
         lists.add("dot");
         lists.add("dog");
         lists.add("lot");

@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package sword;
 
 //0,1,,n-1这n个数字排成一个圆圈，从数字0开始，每次从这个圆圈里删除第m个数字。求出这个圆圈里剩下的最后一个数字。 
 //
@@ -33,14 +33,14 @@ public class S62_YuanQuanZhongZuiHouShengXiaDeShuZiLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         /**
-         * 暴力
-         * n很大的话，循环太多会超时
+         * 暴力-复杂度为O(mn)
+         * 超时
          *
          * @param n
          * @param m
          * @return
          */
-        public int lastRemaining(int n, int m) {
+        public int lastRemaining2(int n, int m) {
 
             int[] circle = new int[n];
             for (int i = 0; i < n; i++) {
@@ -69,6 +69,21 @@ public class S62_YuanQuanZhongZuiHouShengXiaDeShuZiLcof {
 
             }
             return ans;
+        }
+
+        /**
+         * 数学归纳
+         *
+         * @param n
+         * @param m
+         * @return
+         */
+        public int lastRemaining(int n, int m) {
+            int result = 0;
+            for (int i = 2; i <= n; ++i) {
+                result = (result + m) % i;
+            }
+            return result;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
