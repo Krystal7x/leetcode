@@ -1,4 +1,4 @@
-package leetcode.字符串;
+package hot100;
 
 //给定一个只包含 '(' 和 ')' 的字符串，找出最长的包含有效括号的子串的长度。 
 //
@@ -16,12 +16,14 @@ package leetcode.字符串;
 //解释: 最长有效括号子串为 "()()"
 // 
 // Related Topics 字符串 动态规划 
-// 👍 1013 👎 0
+// 👍 1040 👎 0
 
 
 import java.util.Stack;
 
+//L32、最长有效括号
 public class L32_LongestValidParentheses {
+
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int longestValidParentheses(String s) {
