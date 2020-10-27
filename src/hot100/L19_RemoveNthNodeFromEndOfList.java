@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package hot100;
 
 //给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。 
 //
@@ -39,7 +39,29 @@ public class L19_RemoveNthNodeFromEndOfList {
      */
     class Solution {
         public ListNode removeNthFromEnd(ListNode head, int n) {
-            return null;
+            ListNode ans = head;
+            ListNode pre = null;
+            ListNode fast = head;
+            ListNode slow = head;
+            while (slow != null) {
+                if (n > 0) {
+                    slow = slow.next;
+                    n--;
+                } else {
+                    pre = fast;
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+            }
+            if (pre == null) {
+                //删除头节点
+                ans = head.next;
+                head.next = null;
+            } else {
+                pre.next = pre.next.next;
+            }
+
+            return ans;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
