@@ -1,4 +1,4 @@
-package leetcode.数据结构.二叉树;
+package hot100;
 //给定一个整数 n，求以 1 ... n 为节点组成的二叉搜索树有多少种？
 //
 // 示例: 
@@ -16,11 +16,7 @@ package leetcode.数据结构.二叉树;
 // Related Topics 树 动态规划 
 // 👍 789 👎 0
 
-import common.TreeNode;
-
-import java.util.LinkedList;
-import java.util.List;
-
+//L96、不同的二叉搜索树 ----
 public class L96_UniqueBinarySearchTrees {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {

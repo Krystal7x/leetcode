@@ -1,4 +1,4 @@
-package leetcode.数据结构.二叉树;
+package hot100;
 
 import common.TreeNode;
 
@@ -30,6 +30,7 @@ import java.util.Stack;
  * @author luokui
  * @create 2020-09-07 16:52
  */
+//L94、二叉树的中序遍历 ----
 public class L94_BinaryTreeInorderTraversal {
     //leetcode submit region begin(Prohibit modification and deletion)
 
