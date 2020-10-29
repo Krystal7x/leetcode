@@ -14,7 +14,7 @@ public class LKK_radix_sort {
         printAll(array);
     }
 
-    public static void  sort(int[] list) {
+    public static void sort(int[] list) {
         LKK_radix_sort.radix(list, 0, list.length - 1, 3);
     }
 
@@ -24,20 +24,30 @@ public class LKK_radix_sort {
         }; // 本实例中的最大数是百位数，所以只要到100就可以了
         return ((x / a[d]) % 10);
     }
-    public static void radix(int[] list, int begin, int end, int digit){
-       int []count =new int[10];
-        int[]  temp = new int[end-begin+1];
 
-        for(int d=1;d<=digit;d++){
-            for(int i=0;i<count.length;i++){count[i]=0;}
-            for(int i=0;i<list.length;i++){int dig= getDigit(list[i],d);count[dig]++;}
-            for(int i=1;i<count.length;i++){count[i]=count[i]+count[i-1];}
-            for(int i=list.length-1;i>=0;i--){
-                int dig= getDigit(list[i],d);
-                temp[count[dig]-1]=list[i];
+    public static void radix(int[] list, int begin, int end, int digit) {
+        int[] count = new int[10];
+        int[] temp = new int[end - begin + 1];
+
+        for (int d = 1; d <= digit; d++) {
+            for (int i = 0; i < count.length; i++) {
+                count[i] = 0;
+            }
+            for (int i = 0; i < list.length; i++) {
+                int dig = getDigit(list[i], d);
+                count[dig]++;
+            }
+            for (int i = 1; i < count.length; i++) {
+                count[i] = count[i] + count[i - 1];
+            }
+            for (int i = list.length - 1; i >= 0; i--) {
+                int dig = getDigit(list[i], d);
+                temp[count[dig] - 1] = list[i];
                 count[dig]--;
             }
-            for(int i=0;i<list.length;i++){list[i]=temp[i];}
+            for (int i = 0; i < list.length; i++) {
+                list[i] = temp[i];
+            }
         }
     }
 
