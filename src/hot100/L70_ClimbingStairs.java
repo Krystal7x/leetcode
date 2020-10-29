@@ -1,4 +1,4 @@
-package leetcode.动态规划;
+package hot100;
 
 //假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 
 //
@@ -24,9 +24,12 @@ package leetcode.动态规划;
 //3.  2 阶 + 1 阶
 // 
 // Related Topics 动态规划 
-// 👍 1228 👎 0
+// 👍 1305 👎 0
 
+
+//L70、爬楼梯 ---- 
 public class L70_ClimbingStairs {
+
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int climbStairs(int n) {
