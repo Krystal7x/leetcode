@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package hot100;
 
 //给定一个二叉树，判断其是否是一个有效的二叉搜索树。 
 //
@@ -37,6 +37,8 @@ package leetcode.editor.cn;
 
 import common.TreeNode;
 
+import java.util.Stack;
+
 //L98、验证二叉搜索树 ----
 public class L98_ValidateBinarySearchTree {
 
@@ -53,17 +55,50 @@ public class L98_ValidateBinarySearchTree {
      */
     class Solution {
 
+        /**
+         * 直接中序遍历
+         *
+         * @param root
+         * @return
+         */
         boolean isValidBST(TreeNode root) {
+            if (root == null) return false;
+            Stack<TreeNode> stack = new Stack<>();
+            TreeNode n = root;
+            int val = Integer.MIN_VALUE;
+            while (!stack.isEmpty() || n != null) {
+                while (n != null) {
+                    stack.push(n);
+                    n = n.left;
+                }
+                if (!stack.isEmpty()) {
+                    n = stack.pop();
+                    if (n.val < val) return false;
+                    val = n.val;
+                    n = n.right;
+                }
+            }
+            return true;
+        }
+
+
+        /**
+         * 递归，看不太懂了
+         *
+         * @param root
+         * @return
+         */
+        boolean isValidBST2(TreeNode root) {
             if (root == null) return true;
-            return isValidBST(root, null, null);
+            return isValidBST2(root, null, null);
 
         }
 
-        boolean isValidBST(TreeNode root, TreeNode min, TreeNode max) {
+        boolean isValidBST2(TreeNode root, TreeNode min, TreeNode max) {
             if (root == null) return true;
             if (min != null && root.val <= min.val) return false;
             if (max != null && root.val >= max.val) return false;
-            return isValidBST(root.left, min, root) && isValidBST(root.right, root, max);
+            return isValidBST2(root.left, min, root) && isValidBST2(root.right, root, max);
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

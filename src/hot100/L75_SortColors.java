@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package hot100;
 
 //给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。 
 //
@@ -24,20 +24,41 @@ package leetcode.editor.cn;
 
 
 //L75、颜色分类 ---- 
-public class L75_SortColors{
-    
-    //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public void sortColors(int[] nums) {
+public class L75_SortColors {
 
+    //leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public void sortColors(int[] nums) {
+            if (nums.length == 0) return;
+            int left = 0;
+            int right = nums.length - 1;
+            int index = 0;
+
+            while (index <= right) {
+                if (nums[index] == 0 && index != left) {
+                    swap(nums, left, index);
+                    ++left;
+                } else if (nums[index] == 2 && index != right) {
+                    swap(nums, right, index);
+                    --right;
+                } else {
+                    ++index;
+                }
+            }
+
+        }
+
+        private void swap(int[] nums, int x, int y) {
+            int tmp = nums[x];
+            nums[x] = nums[y];
+            nums[y] = tmp;
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
-    
-    
-	public static void main(String[] args) {
-		Solution solution = new L75_SortColors().new Solution();
-		
-	}
+
+    public static void main(String[] args) {
+        Solution solution = new L75_SortColors().new Solution();
+
+    }
 }

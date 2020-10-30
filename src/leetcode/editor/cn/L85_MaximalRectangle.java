@@ -61,8 +61,15 @@ public class L85_MaximalRectangle {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maximalRectangle(char[][] matrix) {
-            return 0;
+            if (matrix.length == 0 || matrix[0].length == 0) return 0;
+            int ans = 0;
+            //dp表示往左连续的1 个数
+            int[][] left = new int[matrix.length][matrix[0].length];
+
+
+            return ans * ans;
         }
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 

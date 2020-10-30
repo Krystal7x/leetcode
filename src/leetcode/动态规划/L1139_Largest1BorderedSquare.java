@@ -49,6 +49,7 @@ public class L1139_Largest1BorderedSquare {
                     up[i][0] = 0;
                     left[i][0] = 0;
                 } else {
+                    //grid[i][0]=1
                     up[i][0] = up[i - 1][0] + grid[i][0];
                     left[i][0] = grid[i][0];
                 }
@@ -58,6 +59,7 @@ public class L1139_Largest1BorderedSquare {
                     up[0][i] = 0;
                     left[0][i] = 0;
                 } else {
+                    //grid[0][i]=1
                     left[0][i] = left[0][i - 1] + grid[0][i];
                     up[0][i] = grid[0][i];
                 }
