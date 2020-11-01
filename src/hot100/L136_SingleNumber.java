@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package hot100;
 
 //给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。 
 //
@@ -25,8 +25,11 @@ public class L136_SingleNumber {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int singleNumber(int[] nums) {
-
-            return 0;
+            int ans = 0;
+            for (int i = 0; i < nums.length; i++) {
+                ans = ans ^ nums[i];
+            }
+            return ans;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
