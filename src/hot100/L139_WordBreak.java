@@ -1,4 +1,4 @@
-package leetcode.动态规划;
+package hot100;
 
 //给定一个非空字符串 s 和一个包含非空单词的列表 wordDict，判定 s 是否可以被空格拆分为一个或多个在字典中出现的单词。 
 //
@@ -35,6 +35,7 @@ package leetcode.动态规划;
 
 import java.util.List;
 
+//L139、单词拆分   -----
 public class L139_WordBreak {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {

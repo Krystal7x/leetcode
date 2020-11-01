@@ -1,4 +1,4 @@
-package leetcode.动态规划;
+package hot100;
 
 //给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。 
 //
@@ -25,7 +25,7 @@ package leetcode.动态规划;
 // Related Topics 数组 动态规划 
 // 👍 1190 👎 0
 
-
+//L121、买卖股票的最佳时机   -----
 public class L121_BestTimeToBuyAndSellStock {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {

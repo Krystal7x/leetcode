@@ -1,4 +1,4 @@
-package leetcode.数据结构.二叉树;
+package hot100;
 
 //给定一个非空二叉树，返回其最大路径和。 
 //
@@ -33,6 +33,7 @@ package leetcode.数据结构.二叉树;
 
 import common.TreeNode;
 
+//L124、二叉树中的最大路径和   -----
 public class L124_BinaryTreeMaximumPathSum {
     //leetcode submit region begin(Prohibit modification and deletion)
 

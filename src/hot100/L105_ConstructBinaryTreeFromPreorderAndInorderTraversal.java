@@ -1,4 +1,4 @@
-package leetcode.数据结构.二叉树;
+package hot100;
 
 
 //根据一棵树的前序遍历与中序遍历构造二叉树。
@@ -23,6 +23,8 @@ package leetcode.数据结构.二叉树;
 
 import common.TreeNode;
 
+
+//L105、从前序与中序遍历序列构造二叉树   -----
 public class L105_ConstructBinaryTreeFromPreorderAndInorderTraversal {
     //leetcode submit region begin(Prohibit modification and deletion)
 
