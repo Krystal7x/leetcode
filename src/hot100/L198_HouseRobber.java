@@ -1,4 +1,4 @@
-package leetcode.动态规划;
+package hot100;
 
 //你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上
 //被小偷闯入，系统会自动报警。 
@@ -31,35 +31,48 @@ package leetcode.动态规划;
 // 0 <= nums[i] <= 400 
 // 
 // Related Topics 动态规划 
-// 👍 1063 👎 0
+// 👍 1142 👎 0
 
-public class L198_HouseRobber{
+
+//L198、打家劫舍 ---- 
+public class L198_HouseRobber {
+
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int rob(int[] nums) {
-            if (nums == null || nums.length == 0) return 0;
+            if (nums.length == 0) return 0;
+            //0不打//1 打
+            int[][] dp = new int[nums.length][2];
+            dp[0][0] = 0;
+            dp[0][1] = nums[0];
+            for (int i = 1; i < nums.length; i++) {
+                //不打
+                dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1]);
+                //打
+                dp[i][1] = dp[i - 1][0] + nums[i];
+            }
+            return Math.max(dp[nums.length - 1][0], dp[nums.length - 1][1]);
+        }
 
+
+        public int rob2(int[] nums) {
+            if (nums == null || nums.length == 0) return 0;
             //dp含义:第i个时最大价值
             int[] rob = new int[nums.length + 1];
-
             rob[1] = nums[0];
-
             for (int i = 2; i <= nums.length; i++) {
                 //第i个偷时的最大值
                 //可压缩
                 rob[i] = Math.max(rob[i - 2] + nums[i - 1], rob[i - 1]);
             }
-
             return rob[nums.length];
-
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
 
-    
-    
-	public static void main(String[] args) {
-		Solution solution = new L198_HouseRobber().new Solution();
-		
-	}
+
+    public static void main(String[] args) {
+        Solution solution = new L198_HouseRobber().new Solution();
+
+    }
 }
