@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package hot100;
 
 //给你一个由 '1'（陆地）和 '0'（水）组成的的二维网格，请你计算网格中岛屿的数量。 
 //
@@ -46,13 +46,41 @@ package leetcode.editor.cn;
 // 👍 839 👎 0
 
 
-//L200、岛屿数量 ---- 
+//L200、岛屿数量 ----
 public class L200_NumberOfIslands {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int numIslands(char[][] grid) {
-            return 0;
+            if (grid.length == 0 || grid[0].length == 0) return 0;
+            int count = 0;
+            boolean[][] visit = new boolean[grid.length][grid[0].length];
+            for (int i = 0; i < grid.length; i++) {
+                for (int j = 0; j < grid[0].length; j++) {
+                    if (grid[i][j] == '1' && !visit[i][j]) {
+                        numIslands(grid, visit, i, j);
+                        count++;
+                    }
+
+                }
+
+            }
+            return count;
+        }
+
+
+        void numIslands(char[][] grid, boolean[][] visit, int x, int y) {
+            if (x < 0 || x >= grid.length) return;
+            if (y < 0 || y >= grid[0].length) return;
+            if (grid[x][y] == '0') return;
+            if (visit[x][y]) return;
+            visit[x][y] = true;
+            numIslands(grid, visit, x + 1, y);
+            numIslands(grid, visit, x - 1, y);
+            numIslands(grid, visit, x, y + 1);
+            numIslands(grid, visit, x, y - 1);
+
+
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
