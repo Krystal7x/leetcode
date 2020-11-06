@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package hot100;
 
 //翻转一棵二叉树。 
 //

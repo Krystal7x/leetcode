@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package hot100;
 
 //实现一个 Trie (前缀树)，包含 insert, search, 和 startsWith 这三个操作。 
 //
@@ -29,17 +29,38 @@ public class L208_ImplementTriePrefixTree {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Trie {
 
+        class TrieNode {
+            TrieNode[] child;
+            boolean isEnd;
+
+            public TrieNode() {
+                this.child = new TrieNode[26];
+                this.isEnd = false;
+            }
+        }
+
+        TrieNode root;
+
+
         /**
          * Initialize your data structure here.
          */
         public Trie() {
-
+            root = new TrieNode();
         }
 
         /**
          * Inserts a word into the trie.
          */
         public void insert(String word) {
+            TrieNode p = root;
+            for (int i = 0; i < word.length(); i++) {
+                if (p.child[word.charAt(i) - 'a'] == null) {
+                    p.child[word.charAt(i) - 'a'] = new TrieNode();
+                }
+                p = p.child[word.charAt(i) - 'a'];
+            }
+            p.isEnd = true;
 
         }
 
@@ -47,15 +68,32 @@ public class L208_ImplementTriePrefixTree {
          * Returns if the word is in the trie.
          */
         public boolean search(String word) {
-            return false;
-
+            TrieNode p = root;
+            for (int i = 0; i < word.length(); i++) {
+                if (p.child[word.charAt(i) - 'a'] == null) {
+                    return false;
+                }
+                p = p.child[word.charAt(i) - 'a'];
+            }
+            if (p.isEnd) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         /**
          * Returns if there is any word in the trie that starts with the given prefix.
          */
         public boolean startsWith(String prefix) {
-            return false;
+            TrieNode p = root;
+            for (int i = 0; i < prefix.length(); i++) {
+                if (p.child[prefix.charAt(i) - 'a'] == null) {
+                    return false;
+                }
+                p = p.child[prefix.charAt(i) - 'a'];
+            }
+            return true;
         }
     }
 

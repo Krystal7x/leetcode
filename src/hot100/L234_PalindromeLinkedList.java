@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package hot100;
 
 //请判断一个链表是否为回文链表。 
 //
@@ -36,8 +36,34 @@ public class L234_PalindromeLinkedList {
      */
     class Solution {
         public boolean isPalindrome(ListNode head) {
-            return false;
+            if (head == null || head.next == null) return true;
+            ListNode mid = findMid(head);
+            ListNode p1 = head;
+            ListNode p2 = reverse(mid.next);
+            while (p1 != null && p2 != null) {
+                if (p1.val != p2.val) return false;
+                p1 = p1.next;
+                p2 = p2.next;
+            }
+            return true;
+        }
 
+        private ListNode findMid(ListNode head) {
+            ListNode fast = head.next;
+            ListNode slow = head;
+            while (fast != null && fast.next != null) {
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            return slow;
+        }
+
+        private ListNode reverse(ListNode n) {
+            if (n == null || n.next == null) return n;
+            ListNode h = reverse(n.next);
+            n.next.next = n;
+            n.next = null;
+            return h;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
