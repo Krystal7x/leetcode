@@ -52,6 +52,7 @@ public class L518_CoinChange2 {
         public int change(int amount, int[] coins) {
             int c = coins.length;
             int[][] dp = new int[c + 1][amount + 1];
+            //base
             for (int i = 0; i <= c; i++) {
                 dp[i][0] = 1;
 
