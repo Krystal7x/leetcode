@@ -140,6 +140,9 @@ public class L128_LongestConsecutiveSequence {
             return max;
         }
 
+        /**
+         * 并查集
+         */
         class UnionFind {
             private int count;
             private Map<Integer, Integer> parent; // (curr, leader)

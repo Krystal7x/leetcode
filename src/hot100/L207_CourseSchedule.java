@@ -45,6 +45,7 @@ public class L207_CourseSchedule {
     class Solution {
         /**
          * BFS
+         * 这个好理解
          *
          * @param numCourses
          * @param prerequisites
