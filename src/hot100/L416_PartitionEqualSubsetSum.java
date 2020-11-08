@@ -1,4 +1,4 @@
-package leetcode.动态规划;
+package hot100;
 
 //给定一个只包含正整数的非空数组。是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。 
 //
@@ -33,6 +33,7 @@ package leetcode.动态规划;
 // Related Topics 动态规划 
 // 👍 393 👎 0
 
+//L416、分割等和子集   -----
 public class L416_PartitionEqualSubsetSum {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
