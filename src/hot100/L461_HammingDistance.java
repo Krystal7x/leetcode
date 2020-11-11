@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package hot100;
 
 //两个整数之间的汉明距离指的是这两个数字对应二进制位不同的位置的数目。 
 //
@@ -30,8 +30,15 @@ public class L461_HammingDistance {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int hammingDistance(int x, int y) {
-            return 0;
+            int count = 0;
+            while (x != 0 || y != 0) {
+                count += (x & 1) ^ (y & 1);
+                x = x >> 1;
+                y = y >> 1;
+            }
+            return count;
         }
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 
