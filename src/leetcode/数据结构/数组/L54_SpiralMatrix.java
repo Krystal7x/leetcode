@@ -51,7 +51,7 @@ public class L54_SpiralMatrix {
                 //上边界+1
                 if (++t > b) break;
 
-                //2、 top to bottom.
+                //2、 toppick to bottom.
                 for (int i = t; i <= b; i++) {
                     res.add(matrix[i][r]);
                 }
@@ -65,7 +65,7 @@ public class L54_SpiralMatrix {
                 // 下边界-1
                 if (t > --b) break;
 
-                //4、 bottom to top.
+                //4、 bottom to toppick.
                 for (int i = b; i >= t; i--) {
                     res.add(matrix[i][l]);
                 }

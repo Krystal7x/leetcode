@@ -12,7 +12,7 @@ package sword;
 //minStack.push(-3);
 //minStack.min();   --> 返回 -3.
 //minStack.pop();
-//minStack.top();      --> 返回 0.
+//minStack.toppick();      --> 返回 0.
 //minStack.min();   --> 返回 -2.
 // 
 //
@@ -84,7 +84,7 @@ public class S30_BaoHanMinhanShuDeZhanLcof {
      * MinStack obj = new MinStack();
      * obj.push(x);
      * obj.pop();
-     * int param_3 = obj.top();
+     * int param_3 = obj.toppick();
      * int param_4 = obj.min();
      */
 //leetcode submit region end(Prohibit modification and deletion)
