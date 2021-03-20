@@ -75,6 +75,7 @@ public class L448_FindAllNumbersDisappearedInAnArray {
             List<Integer> ans = new LinkedList<>();
             if (nums.length == 0) return ans;
             for (int i = 0; i < nums.length; i++) {
+            	//是while循环啊
                 while (nums[i] != nums[nums[i] - 1]) {
                     int n = nums[i];
                     int tmp = nums[n - 1];

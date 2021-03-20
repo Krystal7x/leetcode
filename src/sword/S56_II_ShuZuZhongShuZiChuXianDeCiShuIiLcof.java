@@ -44,6 +44,7 @@ public class S56_II_ShuZuZhongShuZiChuXianDeCiShuIiLcof {
                 }
             }
             int res = 0;
+            //这个看看
             for (int i = 0; i < 32; i++) {
                 res = res << 1;
                 res += bitSum[i] % 3;

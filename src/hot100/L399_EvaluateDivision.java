@@ -72,6 +72,7 @@ public class L399_EvaluateDivision {
 
             if (!x.equals(parents.get(x))) {
                 String tmpParent = parents.get(x);
+                //关键
                 String root = find(tmpParent);
                 double oldVal = val.get(x);
                 val.put(x, oldVal * val.get(tmpParent));

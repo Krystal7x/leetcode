@@ -62,7 +62,7 @@ public class S45_BaShuZuPaiChengZuiXiaoDeShuLcof {
 
 
         /**
-         * stack 小 返回 true
+         * s1 小 返回 true
          *
          * @param s2
          * @return

@@ -36,6 +36,9 @@ package sword;
 
 
 import common.Node;
+import common.TreeNode;
+
+import java.util.Stack;
 
 public class S36_ErChaSouSuoShuYuShuangXiangLianBiaoLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -60,6 +63,49 @@ class Node {
 };
 */
     class Solution {
+
+
+        /**
+         * 将二叉树转为链表，可以借助原始的 right 引用作为 next 引用，left 引用作为 pre 引用，来构造双向链表。
+         * <p>
+         * 核心思想：在中序遍历的时候修改每个节点的 right 和 left 指向
+         * <p>
+         * 那么第一次获取到最左边的叶子节点的时候就要把头指针设定好，同时第一个节点不需要管理right 和 left 的指向，
+         * 所以在接下来的遍历中需要排除第一个节点的操作流程。
+         * <p>
+         * 然后从第二个节点开始操作流程就一致了，即把 pre 的 next 指向自己，把自己的 left 指向 pre，然后自己成为新的 pre
+         *
+         * @param root
+         * @return
+         */
+        public TreeNode Convert(TreeNode root) {
+            if (root == null)
+                return null;
+            Stack<TreeNode> stack = new Stack<>();
+            TreeNode p = root;
+            TreeNode pre = null;// 用于保存中序遍历序列的上一节点
+            boolean isFirst = true;
+            while (p != null || !stack.isEmpty()) {
+                while (p != null) {
+                    stack.push(p);
+                    p = p.left;
+                }
+                p = stack.pop();
+                if (isFirst) {
+                    root = p;// 将中序遍历序列中的第一个节点记为root
+                    pre = root;
+                    isFirst = false;
+                } else {
+                    pre.right = p;
+                    p.left = pre;
+                    pre = p;
+                }
+                p = p.right;
+            }
+            return root;
+        }
+
+
         /**
          * 完全没用上搜索二叉树这个条件
          *

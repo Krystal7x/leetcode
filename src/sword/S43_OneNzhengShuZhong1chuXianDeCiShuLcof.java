@@ -55,7 +55,7 @@ public class S43_OneNzhengShuZhong1chuXianDeCiShuLcof {
                 if (k > 1) {
                     dp[i][0] += Math.pow(10, i - 1);
                 }
-                //3、* 算9的次数
+                //3、* 算9的次数   低位重复10次    高位是10的次方
                 dp[i][1] = 10 * dp[i - 1][1] + (int) Math.pow(10, i - 1);
 
             }

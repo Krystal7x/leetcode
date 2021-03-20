@@ -29,6 +29,9 @@ package sword;
 // 👍 236 👎 0
 
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class S62_YuanQuanZhongZuiHouShengXiaDeShuZiLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
@@ -40,7 +43,7 @@ public class S62_YuanQuanZhongZuiHouShengXiaDeShuZiLcof {
          * @param m
          * @return
          */
-        public int lastRemaining2(int n, int m) {
+        public int lastRemaining1(int n, int m) {
 
             int[] circle = new int[n];
             for (int i = 0; i < n; i++) {
@@ -72,13 +75,29 @@ public class S62_YuanQuanZhongZuiHouShengXiaDeShuZiLcof {
         }
 
         /**
+         * 模拟
+         */
+        public int lastRemaining2(int n, int m) {
+            if (n < 1 || m < 1) return -1;
+            List<Integer> list = new LinkedList<>();
+            for (int i = 0; i < n; i++) list.add(i);
+            int index = 0;
+            while (list.size() > 1) {
+                index = (index + m - 1) % list.size();
+                list.remove(index);
+            }
+            return list.get(0);
+        }
+
+        /**
          * 数学归纳
+         * https://blog.csdn.net/littlehaes/article/details/94760713
          *
          * @param n
          * @param m
          * @return
          */
-        public int lastRemaining(int n, int m) {
+        public int lastRemaining3(int n, int m) {
             int result = 0;
             for (int i = 2; i <= n; ++i) {
                 result = (result + m) % i;

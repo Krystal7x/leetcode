@@ -43,10 +43,12 @@ public class L78_Subsets {
         }
 
         public void subsets(int[] nums, int start, Stack<Integer> stack, List<List<Integer>> ans) {
-            ans.add(new LinkedList<Integer>(stack));
+            if (stack.size() != 0) {
+                ans.add(new LinkedList<Integer>(stack));
+            }
             for (int i = start; i < nums.length; i++) {
                 stack.push(nums[i]);
-                subsets(nums, i + 1, new Stack<Integer>(), ans);
+                subsets(nums, i + 1, stack, ans);
                 stack.pop();
             }
 
@@ -57,6 +59,7 @@ public class L78_Subsets {
 
     public static void main(String[] args) {
         Solution solution = new L78_Subsets().new Solution();
+        System.out.println(solution.subsets(new int[]{1, 2, 3}));
 
     }
 }

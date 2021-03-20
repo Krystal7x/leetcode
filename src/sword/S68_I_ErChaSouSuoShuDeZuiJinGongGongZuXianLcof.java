@@ -58,6 +58,18 @@ public class S68_I_ErChaSouSuoShuDeZuiJinGongGongZuXianLcof {
      * }
      */
     class Solution {
+
+
+        public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q) {
+            if (p.val > root.val && q.val > root.val) {//如果都大于，则最近的一定在root的右子树里，继续找
+                return lowestCommonAncestor1(root.right, p, q);
+            } else if (p.val < root.val && q.val < root.val) { //如果都小于，则最近的一定在root的左子树里，继续找
+                return lowestCommonAncestor1(root.left, p, q);
+            }
+            return root;//如果一左一右就直接返回root
+        }
+
+
         public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
             Stack<TreeNode> pStack = new Stack<>();
             List<TreeNode> pList = new LinkedList<>();

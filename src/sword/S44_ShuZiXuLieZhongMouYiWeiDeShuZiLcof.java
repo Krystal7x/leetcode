@@ -49,7 +49,7 @@ public class S44_ShuZiXuLieZhongMouYiWeiDeShuZiLcof {
             }
             tmp -= 9 * Math.pow(10, base - 1) * base;
             int gap = Math.toIntExact(n - tmp);
-            //落在第几个数上
+            //落在数字几上
             long num = (int) Math.pow(10, base - 1) + (gap - 1) / base;
             char c = String.valueOf(num).charAt((gap - 1) % base);
             return c - '0';

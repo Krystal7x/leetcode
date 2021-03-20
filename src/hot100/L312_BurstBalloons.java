@@ -52,7 +52,7 @@ public class L312_BurstBalloons {
                         // 择优做选择
                         dp[i][j] = Math.max(
                                 dp[i][j],
-                                dp[i][k] + dp[k][j] + tmp[i] * tmp[j] * tmp[k]
+                                dp[i][k] + dp[k][j] + tmp[i] * tmp[k] * tmp[j]
                         );
                     }
 
