@@ -29,7 +29,7 @@ public class L581_ShortestUnsortedContinuousSubarray {
     class Solution {
         public int findUnsortedSubarray(int[] nums) {
             int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
-            //找最小元素
+            //无序数组中找最小元素
             boolean flag = false;
             for (int i = 1; i < nums.length; i++) {
                 if (nums[i] < nums[i - 1])
@@ -37,7 +37,7 @@ public class L581_ShortestUnsortedContinuousSubarray {
                 if (flag)
                     min = Math.min(min, nums[i]);
             }
-            //找最大元素
+            //无序数组中找最大元素
             flag = false;
             for (int i = nums.length - 2; i >= 0; i--) {
                 if (nums[i] > nums[i + 1])

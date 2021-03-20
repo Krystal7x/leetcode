@@ -20,6 +20,7 @@ public class Lxx_Solution {
         if (n == 1) {
             return 1;
         } else {
+            //一小时前，abc三种细胞的数量
             return aCell(n - 1) + bCell(n - 1) + cCell(n - 1);
         }
     }
@@ -31,6 +32,7 @@ public class Lxx_Solution {
         if (n == 1) {
             return 0;
         } else {
+            //一小时前，a细胞的数量
             return aCell(n - 1);
         }
     }
@@ -42,6 +44,7 @@ public class Lxx_Solution {
         if (n == 1 || n == 2) {
             return 0;
         } else {
+            //一小时前，b细胞的数量
             return bCell(n - 1);
         }
     }

@@ -25,7 +25,7 @@ package hot100;
 // 👍 566 👎 0
 
 
-//L312、戳气球 ---- 
+//L312、戳气球 ----  https://mp.weixin.qq.com/s/I0yo0XZamm-jMpG-_B3G8g
 public class L312_BurstBalloons {
 
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -39,6 +39,7 @@ public class L312_BurstBalloons {
             for (int i = 0; i < length; i++) {
                 tmp[i + 1] = nums[i];
             }
+            //dp[i][j] = x表示，戳破气球i和气球j之间（开区间，不包括i和j）的所有气球，可以获得的最高分数为x。
             // 开区间  i到j  的最大值
             int[][] dp = new int[length + 2][length + 2];
             //从下往上

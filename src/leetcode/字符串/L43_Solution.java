@@ -23,6 +23,7 @@ public class L43_Solution {
         int[] ans = new int[l1 + l2];
         for (int i = l1 - 1; i >= 0; i--) {
             for (int j = l2 - 1; j >= 0; j--) {
+                //index位置是i + j
                 int index = i + j;
                 int sum = (num1.charAt(i) - '0') * (num2.charAt(j) - '0') + ans[index + 1];
                 ans[index + 1] = sum % 10;

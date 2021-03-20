@@ -17,18 +17,25 @@ package leetcode.动态规划;
  * @author luokui
  * @create 2020-06-08 21:03
  */
+//https://mp.weixin.qq.com/s/xn4LjWfaKTPQeCXR0qDqZg
 public class L887_Solution {
     //最传统的动态规划，居然超时
     public int superEggDrop2(int K, int N) {
 
         int[][] dp = new int[N + 1][K + 1];
+        //鸡蛋只有一个时，一定是i
         for (int i = 1; i <= N; i++) dp[i][1] = i;
+        //只有一层楼时，就是1
         for (int i = 1; i <= K; i++) dp[1][i] = 1;
 
         for (int i = 2; i <= N; i++) {
             for (int j = 2; j <= K; j++) {
+                //最差为i次
                 dp[i][j] = i;
+                //每层楼开始
                 for (int k = 1; k <= i; k++) {
+                    //如果鸡蛋碎了，那么鸡蛋的个数K应该减一，搜索的楼层区间应该从[1..N]变为[1..i-1]共i-1层楼；
+                    //如果鸡蛋没碎，那么鸡蛋的个数K不变，搜索的楼层区间应该从 [1..N]变为[i+1..N]共N-i层楼。
                     dp[i][j] = Math.min(dp[i][j], Math.max(dp[k - 1][j - 1], dp[i - k][j]) + 1);
                 }
             }

@@ -122,7 +122,7 @@ public class L399_EvaluateDivision {
                 }
                 String pa = find(from);
                 String pb = find(to);
-                if (!pa.equals(pb)) res[i] = -1;
+                if (!pa.equals(pb)){res[i] = -1;}
                 else {
                     res[i] = val.get(from) / val.get(to);
                 }

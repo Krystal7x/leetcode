@@ -49,8 +49,8 @@ public class L11_ContainerWithMostWater {
             while (left < right) {
                 //面积 = 长*宽
                 //因为宽一定减小，长取决于短的边
-                //改变短的边长，下一个可能边长
-                //改变长的边长，下一个可能边长即使长了也没用
+                //改变短的边长，下一个可能变长
+                //改变长的边长，下一个可能边长即使长了也没用，因为还是短的*宽
                 if (height[left] < height[right]) {
                     left++;
                 } else {

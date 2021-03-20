@@ -26,8 +26,10 @@ public class L739_DailyTemperatures {
             //数字，位置
             Map<Integer, Integer> map = new HashMap<>();
             Stack<Integer> stack = new Stack<>();
+            //写入最后一位
             map.put(T[T.length - 1], T.length - 1);
             stack.push(T[T.length - 1]);
+
             for (int i = T.length - 2; i >= 0; i--) {
                 while (!stack.isEmpty() && stack.peek() <= T[i]) {
                     stack.pop();

@@ -32,7 +32,7 @@ class UF {
     }
 
     public int find(int x) {
-        if (x != parent[x]) {
+        while (x != parent[x]) {
             //压缩路径，这样高度就不会超过3
             parent[x] = parent[parent[x]];
             x = parent[x];

@@ -62,11 +62,12 @@ public class L123_BestTimeToBuyAndSellStockIii {
             }
 
             for (int i = 0; i <= length; i++) {
-                //不允许交易的情况下，不会有利润，所以是0。
-                dp[i][0][1] = 0;
+                
                 //不允许交易的情况下，是不可能持有股票的，用负无穷表示这种不可能。
                 dp[i][0][0] = Integer.MIN_VALUE;
 
+                //不允许交易的情况下，不会有利润，所以是0。
+                dp[i][0][1] = 0;
             }
 
             for (int i = 1; i <= length; i++) {

@@ -42,6 +42,7 @@ public class L522_LongestUncommonSubsequenceIi {
                         break;
                     }
                 }
+                //比较完了全部字符串
                 if (j == strs.length) {
                     return strs[i].length();
                 }

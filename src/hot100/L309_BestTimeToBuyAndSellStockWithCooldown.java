@@ -42,6 +42,8 @@ public class L309_BestTimeToBuyAndSellStockWithCooldown {
             dp[0][0] = Integer.MIN_VALUE;
             //第一个物品持有
             dp[1][0] = -prices[0];
+            //第一个物品不持有
+            dp[1][1] = 0;
             for (int i = 2; i <= length; i++) {
                 //持有的最大利润
                 //持有最大值，就是前一天就持有，或者前两天卖出今天买入

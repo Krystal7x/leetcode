@@ -46,6 +46,7 @@ public class L139_WordBreak {
             dp[0] = true;
             for (int i = 1; i <= s.length(); i++) {
                 for (int j = 0; j < i; j++) {
+                    //到当前j位置的字符串是否全部被使用
                     if (dp[j] && contains(s.substring(j, i), wordDict)) {
                         dp[i] = true;
                         break;

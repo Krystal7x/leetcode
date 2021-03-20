@@ -26,6 +26,7 @@ public class L96_UniqueBinarySearchTrees {
             dp[1] = 1;
             for (int i = 2; i < n; i++) {
                 for (int j = 1; j <= i; j++) {
+                    //j-1个节点的可能次数 * i-j个节点的可能次数
                     dp[i] = dp[j - 1] * dp[i - j] + dp[i];
                 }
             }

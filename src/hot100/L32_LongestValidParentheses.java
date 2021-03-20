@@ -43,7 +43,7 @@ public class L32_LongestValidParentheses {
             while (!stack.isEmpty())
                 arr[stack.pop()] = 1;
 
-            //计算0的长度就是最长有效
+            //计算连续0的长度就是最长有效
             int tmp = 0;
             int ans = 0;
             for (int i = 0; i < arr.length; i++) {

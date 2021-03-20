@@ -28,6 +28,7 @@ public class L773_Solution {
         }
         String start = startBuilder.toString();
         String target = "123450";
+        //每个位置可以交换的位置
         int[][] neighbor = {
                 {1, 3},
                 {0, 4, 2},
