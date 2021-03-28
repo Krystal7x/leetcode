@@ -74,7 +74,7 @@ public class S55_II_PingHengErChaShuLcof {
                 return false;
             }
         }
-
+        //加个备忘录，记录每个节点的深度比较好
         public int maxDepth(TreeNode root) {
             if (root == null) return 0;
             int left = maxDepth(root.left);

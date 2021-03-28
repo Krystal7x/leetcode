@@ -21,6 +21,13 @@ import common.ListNode;
 public class L92_Solution {
 
 
+    /**
+     * 反转前k个节点
+     *
+     * @param a
+     * @param k
+     * @return
+     */
     ListNode reverse(ListNode a, int k) {
         ListNode pre = null;
         ListNode cur = a;
@@ -37,6 +44,14 @@ public class L92_Solution {
         return pre;
     }
 
+    /**
+     * 反转从m到n的节点
+     *
+     * @param head
+     * @param m
+     * @param n
+     * @return
+     */
     public ListNode reverseBetween(ListNode head, int m, int n) {
         if (head == null || m == n) return head;
         ListNode mPre = head;

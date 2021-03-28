@@ -34,6 +34,7 @@ public class L287_FindTheDuplicateNumber {
     class Solution {
         /**
          * 把值想像成链表，这样的话有两个节点指向同一个节点，即一定有环
+         *
          * @param nums
          * @return
          */

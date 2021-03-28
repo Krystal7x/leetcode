@@ -9,7 +9,9 @@ package sort.Swap_Sort;
  */
 public class Bubble_Sort {
     public static void BubbleSort(int[] arry) {
+        //i只是控制已排好序的元素个数
         for (int i = 0; i < arry.length - 1; i++) {
+            //j每次从0开始往后冒泡
             for (int j = 0; j < arry.length - 1 - i; j++) {
                 //比较相邻的两个元素，如果前面的比后面的大，则交换位置
                 if (arry[j] > arry[j + 1]) {
