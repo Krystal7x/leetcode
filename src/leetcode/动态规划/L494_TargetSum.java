@@ -57,6 +57,7 @@ public class L494_TargetSum {
                 dp[i][0] = 1;
             }
 
+            //物品在外
             for (int i = 1; i <= nums.length; i++) {
                 for (int j = 0; j <= target; j++) {
                     if (j >= nums[i - 1]) {

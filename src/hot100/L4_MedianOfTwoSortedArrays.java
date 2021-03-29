@@ -57,7 +57,49 @@ package hot100;
 public class L4_MedianOfTwoSortedArrays {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+
+
+        /**
+         * https://www.jianshu.com/p/40217a93b2e6
+         *
+         * @param nums1
+         * @param nums2
+         * @return
+         */
         public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+            int n = nums1.length + nums2.length;
+            if (n % 2 == 1)//和为奇数，返回第n/2+1个数
+                return getMid(nums1, nums2, n / 2 + 1);
+            if (n % 2 == 0)//和为偶数，返回第n/2个数和第n/2+1个数的和的一半
+                return (getMid(nums1, nums2, n / 2) + getMid(nums1, nums2, n / 2 + 1)) / 2.0;
+            else
+                return 0;
+        }
+
+        public double getMid(int[] nums1, int[] nums2, int k) {
+            //返回第k个数
+            int start1 = 0, start2 = 0;
+            while (true) {
+                if (start1 == nums1.length)
+                    return nums2[start2 + k - 1];
+                if (start2 == nums2.length)
+                    return nums1[start1 + k - 1];
+                if (k == 1)
+                    return Math.min(nums1[start1], nums2[start2]);
+                int index1 = Math.min(start1 + k / 2 - 1, nums1.length - 1);
+                int index2 = Math.min(start2 + k / 2 - 1, nums2.length - 1);
+                if (nums1[index1] <= nums2[index2]) {
+                    k -= index1 - start1 + 1;
+                    start1 = index1 + 1;
+                } else {
+                    k -= index2 - start2 + 1;
+                    start2 = index2 + 1;
+                }
+            }
+        }
+
+
+        public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
             int m = 0;
             int n = 0;
             int l1 = nums1.length;

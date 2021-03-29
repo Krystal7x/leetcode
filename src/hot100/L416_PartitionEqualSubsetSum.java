@@ -53,6 +53,7 @@ public class L416_PartitionEqualSubsetSum {
             for (int i = 0; i <= length; i++) {
                 dp[i][0] = true;
             }
+            //物品在外
             for (int i = 1; i <= length; i++) {
                 for (int j = 1; j <= target; j++) {
                     if (j - nums[i - 1] < 0) {
