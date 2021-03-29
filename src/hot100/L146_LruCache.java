@@ -88,6 +88,30 @@ public class L146_LruCache {
 
         }
 
+        //自己处理链表
+        Node head;
+        Node tail;
+        private void addToHead(Node newNode) {
+            newNode.prev = head;
+            newNode.next = head.next;
+            head.next.prev = newNode;
+            head.next = newNode;
+        }
+
+        private void moveNodeToHead(Node node) {
+            removeNode(node);
+            addToHead(node);
+        }
+
+        private void removeNode(Node node) {
+            node.prev.next = node.next;
+            node.next.prev = node.prev;
+        }
+
+        private void removeTailNode() {
+            removeNode(tail.prev);
+        }
+
         class Node {
             public int key, val;
             public Node next, prev;
