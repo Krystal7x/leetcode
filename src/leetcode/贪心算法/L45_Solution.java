@@ -44,7 +44,6 @@ public class L45_Solution {
                 index = i;
                 break;
             }
-
         }
         return jump(nums, index) + 1;
     }
