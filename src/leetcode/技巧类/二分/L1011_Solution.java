@@ -39,7 +39,7 @@ package leetcode.技巧类.二分;
 public class L1011_Solution {
     // 寻找左侧边界的二分查找
     int shipWithinDays(int[] weights, int D) {
-        // 载重可能的最小值
+        // 载重可能的最小值、每个包裹能放上船啊
         int left = getMax(weights);
         // 载重可能的最大值 + 1
         int right = getSum(weights) + 1;

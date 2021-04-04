@@ -27,6 +27,7 @@ public class L645_Solution {
         for (int i = 0; i < nums.length; i++) {
             int abs = Math.abs(nums[i]) - 1;
             if (nums[abs] < 0) {
+                //第一个答案
                 ans[0] = Math.abs(nums[i]);
             } else {
                 nums[abs] = -nums[abs];
@@ -35,6 +36,7 @@ public class L645_Solution {
         //缺少的
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] > 0) {
+                //第二个答案
                 ans[1] = i + 1;
             }
         }

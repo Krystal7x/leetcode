@@ -38,6 +38,11 @@ public class L29_DivideTwoIntegers {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        /**
+         * @param dividend 被除数
+         * @param divisor  除数
+         * @return
+         */
         public int divide(int dividend, int divisor) {
             if (dividend == Integer.MIN_VALUE && divisor == -1)
                 return Integer.MAX_VALUE;

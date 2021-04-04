@@ -32,12 +32,12 @@ public class L51_Solution {
             result(dp, ans);
             return;
         }
-        for (int i = 0; i < n; i++) {
-            dp[row][i] = "Q";
-            if (isValid(dp, row, i)) {
+        for (int col = 0; col < n; col++) {
+            dp[row][col] = "Q";
+            if (isValid(dp, row, col)) {
                 choose(dp, row + 1, ans);
             }
-            dp[row][i] = ".";
+            dp[row][col] = ".";
         }
 
     }

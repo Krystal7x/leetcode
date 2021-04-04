@@ -38,15 +38,20 @@ class Solution {
         public double myPow(double x, int n) {
             if (n == 0) return 1;
             if (n == 1) return x;
-            boolean isMin = false;
-            if (n == Integer.MIN_VALUE) isMin = true;
+
             boolean flag = false;
             if (n < 0) flag = true;
+
+
+            boolean isMin = false;
+            //最大和最小的绝对值之间还差一个1 ！！！！
+            if (n == Integer.MIN_VALUE) isMin = true;
             if (isMin) {
                 n = Integer.MAX_VALUE;
             } else {
                 n = Math.abs(n);
             }
+
 
             double tmp = myPow(x, n / 2);
             if (n % 2 == 0) {

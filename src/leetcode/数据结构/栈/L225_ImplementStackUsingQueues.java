@@ -43,7 +43,7 @@ public class L225_ImplementStackUsingQueues {
          * Push element x onto stack.
          */
         public void push(int x) {
-            if (q2.isEmpty()) {
+            if (!q1.isEmpty()) {
                 q1.add(x);
             } else {
                 q2.add(x);
@@ -55,18 +55,12 @@ public class L225_ImplementStackUsingQueues {
          */
         public int pop() {
             if (!q1.isEmpty()) {
-                if (q1.size() == 1) {
-                    return q1.poll();
-                }
                 while (q1.size() > 1) {
                     q2.add(q1.poll());
                 }
                 return q1.poll();
             }
             if (!q2.isEmpty()) {
-                if (q2.size() == 1) {
-                    return q2.poll();
-                }
                 while (q2.size() > 1) {
                     q1.add(q2.poll());
                 }
@@ -80,11 +74,7 @@ public class L225_ImplementStackUsingQueues {
          * Get the toppick element.
          */
         public int top() {
-
             if (!q1.isEmpty()) {
-                if (q1.size() == 1) {
-                    return q1.peek();
-                }
                 while (q1.size() > 1) {
                     q2.add(q1.poll());
                 }
@@ -93,9 +83,6 @@ public class L225_ImplementStackUsingQueues {
                 return n;
             }
             if (!q2.isEmpty()) {
-                if (q2.size() == 1) {
-                    return q2.peek();
-                }
                 while (q2.size() > 1) {
                     q1.add(q2.poll());
                 }

@@ -32,11 +32,13 @@ public class L496_Solution {
             while (!s.empty() && s.peek() <= nums2[i]) {
                 s.pop();
             }
+            //单调递增栈的
             for (int j = 0; j < l1; j++) {
                 if (nums1[j] == nums2[i]) {
                     result[j] = s.empty() ? -1 : s.peek();
                 }
             }
+            //加入目前的元素
             s.push(nums2[i]);
         }
         return result;

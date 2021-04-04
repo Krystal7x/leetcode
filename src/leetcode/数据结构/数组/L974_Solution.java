@@ -43,12 +43,9 @@ public class L974_Solution {
         int result = 0;
         //计算前缀和
         int[] arr = new int[A.length];
-        for (int i = 0; i < A.length; i++) {
-            if (i == 0) {
-                arr[i] = A[i];
-            } else {
-                arr[i] = A[i] + arr[i - 1];
-            }
+        arr[0] = A[0];
+        for (int i = 1; i < A.length; i++) {
+            arr[i] = A[i] + arr[i - 1];
         }
         //同余定理，取所有前缀和与k的余数
         //(P[j] - P[i-1])%K == 0，根据 同余定理 ，只要 P[j]%K == P[i-1]%K，就可以保证上面的式子成立。
@@ -60,7 +57,7 @@ public class L974_Solution {
             yu[a]++;
         }
 
-        //先处理不是0的情况
+        //先处理两者相减的情况
         for (int i = 0; i < K; i++) {
             if (yu[i] > 1) {
                 int a = yu[i];
@@ -69,7 +66,7 @@ public class L974_Solution {
                 }
             }
         }
-        //0的情况需要加上
+        //0的情况需要再加上一种不减的
         if (yu[0] != 0) {
             result = result + yu[0];
         }

@@ -42,21 +42,21 @@ public class Heap_Sort {
      * @params是待调整的数组元素的位置
      * @paramlength是数组的长度
      */
-    public static void HeapAdjust(int H[], int s, int length) {
-        int tmp = H[s];
-        int child = 2 * s + 1; ////一定是左孩子，左孩子结点的位置。(i+1 为当前调整结点的左孩子结点的位置)(数组从0开始)
+    public static void HeapAdjust(int H[], int index, int length) {
+        int tmp = H[index];
+        int child = 2 * index + 1; ////一定是左孩子，左孩子结点的位置。(i+1 为当前调整结点的左孩子结点的位置)(数组从0开始)
         while (child < length) {//这个很关键
             if (child + 1 < length && H[child] < H[child + 1]) { // 如果右孩子大于左孩子(找到比当前待调整结点大的孩子结点)
                 ++child;
             }
-            if (H[s] < H[child]) {  // 如果较大的子结点大于父结点
-                H[s] = H[child]; // 那么把较大的子结点往上移动，替换它的父结点
-                s = child;       // 重新设置s ,即待调整的下一个结点的位置
-                child = 2 * s + 1;
+            if (H[index] < H[child]) {  // 如果较大的子结点大于父结点
+                H[index] = H[child]; // 那么把较大的子结点往上移动，替换它的父结点
+                index = child;       // 重新设置s ,即待调整的下一个结点的位置
+                child = 2 * index + 1;
             } else {
                 break;
             }
-            H[s] = tmp;         // 当前待调整的结点放到比其大的孩子结点位置上
+            H[index] = tmp;         // 当前待调整的结点放到比其大的孩子结点位置上
         }
     }
 
