@@ -53,6 +53,7 @@ public class L51_Solution {
         for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
             if (dp[i][j].equals("Q")) return false;
         }
+        //不需要往下，因为还没遍历到
         for (int i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++) {
             if (dp[i][j].equals("Q")) return false;
         }
