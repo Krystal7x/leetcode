@@ -32,28 +32,33 @@ public class L581_ShortestUnsortedContinuousSubarray {
             //无序数组中找最小元素
             boolean flag = false;
             for (int i = 1; i < nums.length; i++) {
+                //第一个无序的地方
                 if (nums[i] < nums[i - 1])
                     flag = true;
                 if (flag)
+                    //无序之后的最小值
                     min = Math.min(min, nums[i]);
             }
             //无序数组中找最大元素
             flag = false;
             for (int i = nums.length - 2; i >= 0; i--) {
+                //第一个无序的地方
                 if (nums[i] > nums[i + 1])
                     flag = true;
                 if (flag)
+                    //无序之后的最大值
                     max = Math.max(max, nums[i]);
             }
             //最小元素的位置
-            int l, r;
+            int l = 0;
+            int r = nums.length - 1;
             for (l = 0; l < nums.length; l++) {
-                if (min < nums[l])
+                if (nums[l] > min)
                     break;
             }
             //最大元素的
             for (r = nums.length - 1; r >= 0; r--) {
-                if (max > nums[r])
+                if (nums[r] < max)
                     break;
             }
             return r - l < 0 ? 0 : r - l + 1;

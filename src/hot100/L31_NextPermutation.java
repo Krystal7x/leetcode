@@ -20,55 +20,39 @@ public class L31_NextPermutation {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public void nextPermutation(int[] nums) {
-            if (nums.length < 2) return;
-
-            int index = -1;
-            //找到升序的队列的需要交换的位置
-            for (int i = 0; i < nums.length - 1; i++) {
-                //升序
-                if (nums[i] < nums[i + 1]) {
-                    index = i;
+            int i = nums.length - 2;
+            //从后往前升序就一直往前
+            while (i >= 0 && nums[i] >= nums[i + 1]) {
+                i--;
+            }
+            if (i >= 0) {
+                //知道第一个比nums[i]大的数字
+                int j = nums.length - 1;
+                while (j >= 0 && nums[j] <= nums[i]) {
+                    j--;
                 }
+                //交换
+                swap(nums, i, j);
             }
-            //没有升序就直接反过来
-            if (index == -1) {
-                sort(nums, 0, nums.length - 1);
-                return;
-            }
-
-            //找到index后最小的数字
-            int swapMinIndex = index + 1;
-            for (int i = index + 2; i < nums.length - 1; i++) {
-                //升序
-                if (nums[i] < nums[swapMinIndex] && nums[i] > nums[index]) {
-                    swapMinIndex = i;
-                }
-            }
-            //交换这两个数字，然后升序后面的数组
-            swap(nums, index, swapMinIndex);
-
-            //index之后的数字按升序排列
-            sort(nums, index + 1, nums.length - 1);
-
+            //i后面的直接倒序即可
+            reverse(nums, i + 1);
         }
 
-        void swap(int[] nums, int a, int b) {
-            int tmp = nums[a];
-            nums[a] = nums[b];
-            nums[b] = tmp;
-        }
-
-        void sort(int[] nums, int left, int right) {
-            for (int i = left; i <= right; i++) {
-                for (int j = i + 1; j <= right; j++) {
-                    if (nums[i] > nums[j]) {
-                        swap(nums, i, j);
-                    }
-
-                }
-
+        private void reverse(int[] nums, int start) {
+            int i = start, j = nums.length - 1;
+            while (i < j) {
+                swap(nums, i, j);
+                i++;
+                j--;
             }
         }
+
+        private void swap(int[] nums, int i, int j) {
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 

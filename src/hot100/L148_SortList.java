@@ -85,7 +85,7 @@ public class L148_SortList {
                 return head;
             }
             ListNode slow = head;
-            ListNode fast = head.next.next;
+            ListNode fast = head;
 
             while (fast != null && fast.next != null) {
                 slow = slow.next;
