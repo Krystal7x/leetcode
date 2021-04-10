@@ -57,7 +57,7 @@ public class L621_TaskScheduler {
             while (map[25] > 0) {
                 int i = 0; // 记录 n 的轮次 是否满足了
                 while (i <= n) { // 这里 要 <= n 这样 才能 n+1 轮次
-                    // 首先要判断下 最大轮次是否已经走完
+                    // 重点、首先要判断下 最大轮次是否已经走完
                     if (map[25] == 0)
                         break;
                     if (i < 26 && map[25 - i] > 0)

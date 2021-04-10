@@ -36,10 +36,10 @@ public class L309_BestTimeToBuyAndSellStockWithCooldown {
             //dp[i][1]含义 第i天时的最大利润,0持有，1卖出
             int[][] dp = new int[length + 1][2];
 
-            // 没开始走价格时，卖出利润当然是 0 。
-            dp[0][1] = 0;
             //还没开始的时候，是不可能持有股票的
             dp[0][0] = Integer.MIN_VALUE;
+            // 没开始走价格时，卖出利润当然是 0 。
+            dp[0][1] = 0;
             //第一个物品持有
             dp[1][0] = -prices[0];
             //第一个物品不持有
