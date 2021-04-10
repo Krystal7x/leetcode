@@ -94,6 +94,46 @@ public class S40_ZuiXiaoDeKgeShuLcof {
             return ans;
         }
     }
+
+    /**
+     * 快排解决TOP-K问题
+     */
+    public static class TOPK {
+        static int quickSortForTopK(int[] m, int n, int left, int right) {
+
+            int index = partition(m, left, right);
+            int pivot = index + 1;
+            if (pivot == n) return m[index];
+            return pivot > n ? quickSortForTopK(m, n, left, index - 1) : quickSortForTopK(m, n, index + 1, right);
+
+        }
+
+        private static int partition(int[] m, int left, int right) {
+            int sign = m[left];
+            int i = left + 1;
+            int j = right;
+            while (true) {
+                while (i <= right && m[i] < sign) i++;
+                while (j >= left && m[j] > sign) j--;
+                if (i >= j) break;
+                swap(m, i, j);
+            }
+            swap(m, left, j);
+            return j;
+        }
+
+        private static void swap(int[] m, int i, int j) {
+            int tmp = m[i];
+            m[i] = m[j];
+            m[j] = tmp;
+        }
+
+        public static void main(String[] args) {
+            int i = quickSortForTopK(new int[]{2, 3, 4, 7, 6, 1, 5, 0}, 1, 0, 7);
+            System.out.println(i);
+        }
+    }
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 
