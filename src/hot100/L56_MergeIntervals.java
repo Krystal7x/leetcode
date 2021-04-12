@@ -47,6 +47,7 @@ public class L56_MergeIntervals {
             int right = intervals[0][1];
 
             for (int i = 1; i <= intervals.length; i++) {
+                //到最后了
                 if (i == intervals.length) {
                     int[] gap = new int[2];
                     gap[0] = left;

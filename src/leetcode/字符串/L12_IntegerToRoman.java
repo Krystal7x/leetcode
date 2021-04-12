@@ -59,7 +59,7 @@ package leetcode.字符串;
 public class L12_IntegerToRoman {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        public String intToRoman(int num) {
+        public String intToRoman2(int num) {
             String[] M = {"", "M", "MM", "MMM"};// 0,1000,2000,3000
             String[] C = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};//0,100,200,300,...,900
             String[] X = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};//0,10,20,30,...,90
@@ -67,6 +67,30 @@ public class L12_IntegerToRoman {
             StringBuilder ans = new StringBuilder();
             ans.append(M[num / 1000]).append(C[num % 1000 / 100]).append(X[num % 100 / 10]).append(I[num % 10]);
             return ans.toString();
+        }
+
+        /**
+         * 这个比较好，上面那个太取巧了
+         *
+         * @param num
+         * @return
+         */
+        public String intToRoman(int num) {
+            int[] numArray = new int[]{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+            String[] strArray = new String[]{"M", "cM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+            StringBuffer res = new StringBuffer();
+            if (num <= 0 || num >= 3999) {
+                return null;
+            }
+            for (int i = 0; i < numArray.length; i++) {
+                int temp = num / numArray[i];
+                while (temp > 0) {
+                    res.append(strArray[i]);
+                    temp--;
+                }
+                num = num % numArray[i];
+            }
+            return res.toString();
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

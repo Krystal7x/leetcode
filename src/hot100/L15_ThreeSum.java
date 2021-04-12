@@ -35,6 +35,7 @@ public class L15_ThreeSum {
             if (nums.length < 3) return ans;
             Arrays.sort(nums);
             for (int i = 0; i < nums.length; i++) {
+                //去重
                 if (i > 1 && nums[i] == nums[i - 1]) continue;
                 List<List<Integer>> two = twoSum(nums, -nums[i], i + 1);
                 if (!two.isEmpty()) {

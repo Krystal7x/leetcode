@@ -59,6 +59,7 @@ public class L416_PartitionEqualSubsetSum {
                     if (j - nums[i - 1] < 0) {
                         dp[i][j] = false;
                     } else {
+                        //后面是i-1 不是 i
                         dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i - 1]];
                     }
                 }

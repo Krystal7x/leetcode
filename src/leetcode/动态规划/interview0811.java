@@ -25,6 +25,7 @@ public class interview0811 {
         dp[0] = 1;
         //物品在外
         for (int coin : coins) {
+            //容量
             for (int i = coin; i <= n; i++) {
                 dp[i] = (dp[i] + dp[i - coin]) % 1000000007;
             }

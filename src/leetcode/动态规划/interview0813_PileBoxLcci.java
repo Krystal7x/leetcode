@@ -38,6 +38,7 @@ public class interview0813_PileBoxLcci {
             Arrays.sort(box, (a, b) -> a[0] == b[0] ? a[1] == b[1] ? a[2] - b[2] : a[1] - b[1] : a[0] - b[0]);
             int length = box.length;
             int[] height = new int[length];
+            //最少一个箱子
             for (int i = 0; i < length; i++) {
                 height[i] = box[i][2];
             }

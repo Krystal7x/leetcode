@@ -63,6 +63,7 @@ public class L518_CoinChange2 {
                     if (j - coins[i - 1] < 0) {
                         dp[i][j] = dp[i - 1][j];
                     } else {
+                        //后面是i 不是 i-1
                         dp[i][j] = dp[i - 1][j] + dp[i][j - coins[i - 1]];
                     }
 

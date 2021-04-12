@@ -70,6 +70,7 @@ public class L33_SearchInRotatedSortedArray {
             int left = 0;
             int right = nums.length - 1;
             while (left < right) {
+                //应为left没有+1，这地方注意一下
                 if (left + 1 == right) return right;
                 int mid = (left + right) / 2;
                 if (nums[mid] < nums[right]) {

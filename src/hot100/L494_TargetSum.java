@@ -39,35 +39,9 @@ package hot100;
 public class L494_TargetSum {
 
     //leetcode submit region begin(Prohibit modification and deletion)
+
+
     class Solution {
-        /**
-         * 感觉这个也对的啊
-         *
-         * @param nums
-         * @param S
-         * @return
-         */
-        public int findTargetSumWays(int[] nums, int S) {
-            if (nums.length == 0) return 0;
-            int[][] dp = new int[nums.length + 1][S + 1];
-            dp[0][0] = 1;
-            for (int i = 1; i <= nums.length; i++) {
-                for (int j = 0; j <= S; j++) {
-                    if (j - nums[i - 1] >= 0) {
-                        dp[i][j] = dp[i][j] + dp[i - 1][j - nums[i - 1]];
-                    }
-                    if (j + nums[i - 1] <= S) {
-                        dp[i][j] = dp[i][j] + dp[i - 1][j + nums[i - 1]];
-                    }
-                }
-
-            }
-            return dp[nums.length][S];
-        }
-    }
-
-
-    class Solution2 {
         /**
          * 改变一下题目 x-y=S; x+y=sum so (S+sum)/2 =2x 即，找到一部分数字 和为(S+sum)/2即可
          *
