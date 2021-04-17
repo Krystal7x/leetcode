@@ -43,7 +43,7 @@ public class L49_GroupAnagrams {
                 ans.get(key).add(str);
             }
 
-            return new ArrayList(ans.values());
+            return new ArrayList<>(ans.values());
         }
 
 

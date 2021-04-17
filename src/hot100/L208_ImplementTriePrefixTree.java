@@ -39,6 +39,9 @@ public class L208_ImplementTriePrefixTree {
             }
         }
 
+        /**
+         * 头节点
+         */
         TrieNode root;
 
 

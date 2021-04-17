@@ -53,6 +53,7 @@ public class S58_I_FanZhuanDanCiShunXuLcof {
             reverse(chars, 0, s.length() - 1);
 
             int i1 = 0, i2 = 0;
+            //反转每一个单词
             while (i1 < chars.length) {
                 if (chars[i1] == ' ') {
                     i1++;
@@ -68,6 +69,7 @@ public class S58_I_FanZhuanDanCiShunXuLcof {
 
             }
 
+            //去除空格
             char[] ans = new char[chars.length];
             int l1 = 0, l2 = 0;
             while (l1 < chars.length) {

@@ -82,8 +82,6 @@ public class L93_RestoreIpAddresses {
                     stack.push(i);
                     restoreIpAddresses(s, i, stack, ans);
                     stack.pop();
-                } else {
-                    return;
                 }
             }
         }

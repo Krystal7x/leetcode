@@ -77,7 +77,7 @@ public class L12_IntegerToRoman {
          */
         public String intToRoman(int num) {
             int[] numArray = new int[]{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-            String[] strArray = new String[]{"M", "cM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+            String[] strArray = new String[]{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
             StringBuffer res = new StringBuffer();
             if (num <= 0 || num >= 3999) {
                 return null;

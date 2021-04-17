@@ -97,7 +97,7 @@ public class L148_SortList {
             return slow;
         }
 
-        // 合并两个有序链表（21. 合并两个有序链表）
+        // 合并两个有序链表（L21. 合并两个有序链表,使用递归）
         private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
             ListNode sentry = new ListNode(-1);
             ListNode curr = sentry;

@@ -74,6 +74,7 @@ public class L25_Solution {
         ListNode a = head;
         ListNode b = head;
         for (int i = 0; i < k; i++) {
+            //最后一段不翻了
             if (b == null) {
                 return a;
             }
