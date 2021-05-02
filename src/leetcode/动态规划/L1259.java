@@ -24,7 +24,7 @@ public class L1259 {
             dp[2] = 1;
             dp[4] = 2;
             for (int i = 6; i <= num_people; i += 2) {
-                //直接分成2个人群就好
+                //不管谁和谁握手，直接分成2个人群就好
                 for (int j = 0; j < i / 2; j++) {
                     //2 * j个人 和 i - 2 - 2 * j 个人
                     dp[i] = (dp[i] + dp[2 * j] * dp[i - 2 - 2 * j]) % 1000000007;

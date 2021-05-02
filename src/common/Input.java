@@ -11,7 +11,12 @@ import java.util.Scanner;
 public class Input {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        String s = input.next();
-        int a = input.nextInt();
+        // String s = input.next();
+        //int a = input.nextInt();
+        while (true) {
+            String s = input.next();
+            if (s.equals("end")) break;
+            System.out.println("---" + s);
+        }
     }
 }

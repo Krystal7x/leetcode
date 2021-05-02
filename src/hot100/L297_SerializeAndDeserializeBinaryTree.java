@@ -52,8 +52,10 @@ public class L297_SerializeAndDeserializeBinaryTree {
             StringBuilder str = new StringBuilder();
             Queue<TreeNode> queue = new LinkedList<>();
             queue.add(root);
-            while (!queue.isEmpty()) {
+            int empty = 0;
+            while (!queue.isEmpty() && empty != queue.size()) {
                 int size = queue.size();
+                empty = 0;
                 for (int i = 0; i < size; i++) {
                     TreeNode n = queue.poll();
                     if (n == null) {
@@ -62,6 +64,8 @@ public class L297_SerializeAndDeserializeBinaryTree {
                     } else {
                         str.append(n.val + " ");
                     }
+                    if (n.left == null) empty++;
+                    if (n.right == null) empty++;
                     queue.add(n.left);
                     queue.add(n.right);
                 }
@@ -85,8 +89,8 @@ public class L297_SerializeAndDeserializeBinaryTree {
                     if (n == null) {
                         continue;
                     } else {
-                        TreeNode left = getNode(vals[index++]);
-                        TreeNode right = getNode(vals[index++]);
+                        TreeNode left = getNode2(vals, index++);
+                        TreeNode right = getNode2(vals, index++);
                         n.left = left;
                         n.right = right;
                         queue.add(left);
@@ -95,6 +99,16 @@ public class L297_SerializeAndDeserializeBinaryTree {
                 }
             }
             return root;
+        }
+
+        public TreeNode getNode2(String[] vals, int index) {
+            if (index > vals.length - 1) {
+                return null;
+            }
+            if (vals[index].equals("null")) {
+                return null;
+            }
+            return new TreeNode(Integer.parseInt(vals[index]));
         }
 
 
@@ -115,6 +129,10 @@ public class L297_SerializeAndDeserializeBinaryTree {
 
 
     public static void main(String[] args) {
+        Codec codec = new L297_SerializeAndDeserializeBinaryTree().new Codec();
+        TreeNode root = codec.deserialize("1 2 2 null 3 null 3");
+        String s = codec.serialize(root);
+        System.out.println(root);
 
 
     }

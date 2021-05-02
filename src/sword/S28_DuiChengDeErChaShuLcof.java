@@ -43,6 +43,8 @@ package sword;
 
 import common.TreeNode;
 
+import java.util.Stack;
+
 public class S28_DuiChengDeErChaShuLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
 
@@ -67,6 +69,41 @@ public class S28_DuiChengDeErChaShuLcof {
             if (left == null && right != null) return false;
             if (left.val != right.val) return false;
             return isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);
+        }
+
+
+        /**
+         * 非递归实现
+         *
+         * @param root
+         * @return
+         */
+        public boolean isSymmetric2(TreeNode root) {
+            if (root == null) return true;
+            Stack<TreeNode> s1 = new Stack<>();
+            Stack<TreeNode> s2 = new Stack<>();
+            TreeNode l = root.left;
+            TreeNode r = root.right;
+            while (l != null || r != null || s1.size() > 0 || s2.size() > 0) {
+                while (l != null && r != null) {//当l r 同时存在
+                    s1.push(l);
+                    l = l.left;
+                    s2.push(r);
+                    r = r.right;
+                }
+                if (l != null || r != null) return false;
+                //此时l 和 r 都为空
+                l = s1.pop();
+                r = s2.pop();
+                if (l.val != r.val) return false;
+
+                //关键
+                l = l.right;
+                r = r.left;
+            }
+
+            return true;
+
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

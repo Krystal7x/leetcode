@@ -83,6 +83,7 @@ class Node {
                 return null;
             Stack<TreeNode> stack = new Stack<>();
             TreeNode p = root;
+            TreeNode ans = null;
             TreeNode pre = null;// 用于保存中序遍历序列的上一节点
             boolean isFirst = true;
             while (p != null || !stack.isEmpty()) {
@@ -92,8 +93,8 @@ class Node {
                 }
                 p = stack.pop();
                 if (isFirst) {
-                    root = p;// 将中序遍历序列中的第一个节点记为root
-                    pre = root;
+                    ans = p;// 将中序遍历序列中的第一个节点记为root
+                    pre = p;
                     isFirst = false;
                 } else {
                     pre.right = p;
@@ -102,7 +103,7 @@ class Node {
                 }
                 p = p.right;
             }
-            return root;
+            return ans;
         }
 
 

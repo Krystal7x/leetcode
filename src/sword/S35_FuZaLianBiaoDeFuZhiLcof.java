@@ -104,6 +104,7 @@ class Node {
                 origin = origin.next;
                 copyHead = copyHead.next;
             }
+            //这里有还需要这一步！！！
             origin.next = null;
             return ans;
         }
