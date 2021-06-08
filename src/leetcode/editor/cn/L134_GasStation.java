@@ -55,8 +55,35 @@ public class L134_GasStation {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        /**
+         * 1、如果我们总的净消耗小于0，那么显然是不可能走完一圈的。
+         * 2、出发点的净消耗必须要大于等于0。否则不可能出发。
+         * <p>
+         * 3、下一个规则需要一个反证法来证明。
+         * 即当我们从i点到j点之前，如果总的净消耗小于0。那么从i+1点到j点之前的任意点到j点之前的净消耗均小于0。
+         * 反证法：我们假设k点到j点之前的净消耗大于0。因为要保持i点到j点的净消耗小于0。所以i点到k点之前的净消耗小于0。
+         * 这很矛盾，因为我们既然能走过k点，就代表i点到k点之前的净消耗是大于等于0的话，否则就走不下去。
+         *
+         * @param gas
+         * @param cost
+         * @return
+         */
         public int canCompleteCircuit(int[] gas, int[] cost) {
-            return 0;
+            int total = 0;
+            int curr = 0;
+            int res = 0;
+            for (int i = 0; i < gas.length; i++) {
+                total += gas[i] - cost[i];
+                curr += gas[i] - cost[i];
+                // 如果curr<0，则代表新起点要从i+1开始，中间的这些点开始都不行
+                if (curr < 0) {
+                    res = i + 1;
+                    curr = 0;
+                }
+            }
+            if (total < 0)
+                return -1;
+            return res;
 
         }
     }
